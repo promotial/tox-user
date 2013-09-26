@@ -1,0 +1,44 @@
+no-around()
+  margin 0 !important
+  padding 0 !important
+  border 0 !important
+
+divider(h=1,w=1,c=white)
+  width unit(w,px) !important
+  height unit(h,px) !important
+  background c !important
+
+.pull-right
+  float right !important
+.pull-left
+  float left !important
+
+.hide, .visible-ph, .visible-smph, .visible-sm, .visible-md, .visible-lg
+  display none !important
+
+.show, .hidden-ph, .hidden-smph, .hidden-sm, .hidden-md, .hidden-lg
+  display block !important
+
+@media screen and (max-width: 385px)
+  .visible-smph, .visible-ph
+    display block !important
+  .hidden-smph, .hidden-ph
+    display none !important
+
+@media (min-width: 386px) and (max-width: 700px)
+  .visible-smph, .visible-sm
+    display block !important
+  .hidden-smph, .hidden-sm
+    display none !important
+
+@media (min-width: 701px) and (max-width: 991px)
+  .visible-md 
+    display block !important
+  .hidden-md
+    display none !important
+
+@media (min-width: 992px)
+  .visible-lg
+    display block !important
+  .hidden-lg
+    display none !important

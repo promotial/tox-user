@@ -1,0 +1,1 @@
+Calls = new Meteor.Collection('calls');
