@@ -1,27 +1,33 @@
 //navbar
 #top-nav
-  position fixed
-  background #2c3e50
+  background dark-pink
   height 38px
+  @media (min-width: 420px) and (min-height: 320px)
+    height 44px
   width 100%
-  min-width 700px
-  no-around()
+  border 2px solid black
+  box-sizing border-box
 //items on navbar
 #top-nav div
+  font-size 25px
+  @media (min-width: 420px) and (min-height: 320px)
+    margin-bottom 3px
   float right
   position relative
-  margin-top 1px
+  margin-top 2.1px
   &:hover
     background none 
 .nav-btn
-  padding 7px
-  margin-right 4px
+  padding 1px
+  font-size 30px
+  @media (min-width: 420px) and (min-height: 320px)
+    padding 5px
+  margin-right 6px
   display block
   text-align center
   background none
-  color white
+  color black
   text-decoration none
-  &:hover
-    background #233140 
+    
 
 
