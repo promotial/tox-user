@@ -8,16 +8,16 @@
   </select>
   <span class="call-input-title">Name</span> <input id="call-name-input" class="call-input-box" type="text">
   <br>
-  <span class="call-input-title">Mobile</span> <input class="call-input-box" type="tel">
+  <span class="call-input-title">Mobile</span> <input id="call-mobile-input" class="call-input-box" type="tel">
   <br>
-  <span class="call-input-title">Weight</span> <input class="call-input-box call-input-weight" type="tel">
-  <span class="call-input-title">Age</span> <input class="call-input-box call-input-weight" type="tel">
+  <span class="call-input-title">Weight</span> <input id="call-weight-input" class="call-input-box call-input-weight" type="tel">
+  <span class="call-input-title">Age</span> <input id="call-age-input" class="call-input-box call-input-weight" type="tel">
   <br>
 
   <div style="max-width:150px;max-height:100px;float:left;">
     <span id="loc-switch-title">Share Location</span>
     <label id="loc-toggle" class="switch-light candy" onclick="">
-      <input type="checkbox">
+      <input id="loc-toggle-checkbox" type="checkbox">
 	    <span>
 		    <span>Off</span>
 		    <span>On</span>
@@ -30,7 +30,7 @@
   <div style="max-width:150px;max-height:100px;float:right;">
     <span id="gender-switch-title">Gender</span>
     <label id="gender-toggle" class="switch-light candy" onclick="">
-      <input type="checkbox">
+      <input id="sex-toggle-checkbox" type="checkbox">
 	    <span>
 		    <span>Male</span>
 		    <span>Female</span>
@@ -40,6 +40,6 @@
     </label>
   </div>
 
-  <div id="attach-photos-btn">Attach Photos</div>
-  <div id="new-call-start"><span aria-hidden="true" class="icon-phone"></span>  Initiate Call</div>
+  <div id="attach-photos-btn"> <span style="display: table-cell; vertical-align: middle;">Attach Photos</span> </div>
+  <div id="new-call-start"> <span style="display: table-cell; vertical-align: middle;"> <span aria-hidden="true" class="icon-phone">  Initiate Call</span> </div>
 </template>
