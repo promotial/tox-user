@@ -1,0 +1,45 @@
+<template name="newCall" xmlns="http://www.w3.org/1999/html">
+  <div id="new-call-title">New Call</div>
+  <select id="call-profile-select">
+    <option value="Mary Sue">Mary Sue</option>
+    <option value="Jane Doe" selected>Jane Doe</option>
+    <option value="Billy Bob">Billy Bob</option>
+    <option value="John Doe">John Doe</option>
+  </select>
+  <span class="call-input-title">Name</span> <input id="call-name-input" class="call-input-box" type="text">
+  <br>
+  <span class="call-input-title">Mobile</span> <input class="call-input-box" type="tel">
+  <br>
+  <span class="call-input-title">Weight</span> <input class="call-input-box call-input-weight" type="tel">
+  <span class="call-input-title">Age</span> <input class="call-input-box call-input-weight" type="tel">
+  <br>
+
+  <div style="max-width:150px;max-height:100px;float:left;">
+    <span id="loc-switch-title">Share Location</span>
+    <label id="loc-toggle" class="switch-light candy" onclick="">
+      <input type="checkbox">
+	    <span>
+		    <span>Off</span>
+		    <span>On</span>
+	    </span>
+      </input>
+      <a></a>
+    </label>
+  </div>
+
+  <div style="max-width:150px;max-height:100px;float:right;">
+    <span id="gender-switch-title">Gender</span>
+    <label id="gender-toggle" class="switch-light candy" onclick="">
+      <input type="checkbox">
+	    <span>
+		    <span>Male</span>
+		    <span>Female</span>
+	    </span>
+      </input>
+      <a></a>
+    </label>
+  </div>
+
+  <div id="attach-photos-btn">Attach Photos</div>
+  <div id="new-call-start"><span aria-hidden="true" class="icon-phone"></span>  Initiate Call</div>
+</template>

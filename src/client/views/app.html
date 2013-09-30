@@ -1,11 +1,10 @@
 <template name="app">
   <div class="app">
-  <!-- navbar -->
-  {{> topNav}}
+    <!-- navbar -->
+    {{> topNav}}
 
-  <div id="app-content">
-    {{> home}}
-  </div>
-
+    <div id="app-content">
+      {{yield "appView"}}
+    </div>
   </div>
 </template>
