@@ -14,7 +14,7 @@ Template.login.events({
       if (err) {
         console.log("Login Failed");
       } else {
-        Meteor.subscribe('calls');
+        server.subscribe('calls');
         Meteor.subscribe('profiles');
       }
     });

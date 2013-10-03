@@ -1,5 +1,6 @@
 Router.configure({
   layoutTemplate: 'layout',
+
   //redirects users that aren't logged in to login page (all paths)
   before: function () {
     if (!Meteor.user()) {
@@ -18,6 +19,24 @@ Router.map(function () {
     path: '/',
     template:"app",
     yieldTemplates: { 'home': {to: 'appView'} }
+  });
+
+  //renders profiles into appView on '/profiles'
+  this.route("profiles", {
+    template: "app",
+    yieldTemplates: { 'profiles': {to: "appView"} }
+  });
+
+  //renders profiles into appView on '/profiles'
+  this.route("newCall", {
+    template: "app",
+    yieldTemplates: { 'newCall': {to: "appView"} }
+  });
+
+  //renders history into appView on '/history'
+  this.route("history", {
+    template: "app",
+    yieldTemplates: { 'history': {to: "appView"} }
   });
 
   this.route('editProfile', {
@@ -39,15 +58,10 @@ Router.map(function () {
   });
 
   //renders profiles into appView on '/profiles'
-  this.route("profiles", {
+  this.route("addProfile", {
+    path: "/profiles/add",
     template: "app",
-    yieldTemplates: { 'profiles': {to: "appView"} }
-  });
-
-  //renders history into appView on '/history'
-  this.route("history", {
-    template: "app",
-    yieldTemplates: { 'history': {to: "appView"} }
+    yieldTemplates: { 'addProfile': {to: "appView"} }
   });
 
   //redirect all other urls to home ("/")

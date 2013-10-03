@@ -1,7 +1,7 @@
 <template name="addProfile">
   <div id="new-call-title"> Add Profile </div>
-  <a id="new-call-back" href="{{pathFor 'profiles'}}" style="color:black;"> <span aria-hidden="true" id="new-call-back-txt" class="icon-chevron-left"> </span> </a>
-  <a id="new-call-save" href="{{pathFor 'profiles'}}" style="color:black;"> <span aria-hidden="true" id="new-call-back-txt" class="icon-save"> </span> </a>
+  <a id="new-call-back" href="{{pathFor 'profiles'}}" style="color:black;"> <span aria-hidden="true" class="new-call-back-txt icon-chevron-left"> </span> </a>
+  <div id="new-call-save" style="color:black;"> <span aria-hidden="true" class="new-call-back-txt icon-save"> </span> </div>
   <span class="call-input-title edit-input-title">Name</span> <input id="call-name-input" class="call-input-box edit" type="text">
   <br>
   <span class="call-input-title edit-input-title">Mobile</span> <input id="call-mobile-input" class="call-input-box edit" type="tel">
@@ -36,3 +36,4 @@
     </label>
   </div>
 </template>
+

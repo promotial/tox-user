@@ -9,7 +9,7 @@ Template.newCall.events({
     // retrieve the input field values
     var params = {};
     params.name = trimInput(t.find('#call-name-input').value);
-    params.mobile = t.find('#call-mobile-input').value;
+    params.number = ''+t.find('#call-mobile-input').value;
     params.weight = t.find('#call-weight-input').value;
     params.age = t.find('#call-age-input').value;
     if (t.find('#loc-toggle-checkbox').checked) {
@@ -17,7 +17,7 @@ Template.newCall.events({
     }
     if (t.find('#sex-toggle-checkbox').checked) {
       params.sex=1;
-    } else {params.sex=2;}
+    } else {params.sex=0;}
     Meteor.call('newCall',params, function(error) {
       if (error) {
         console.log(error.reason);

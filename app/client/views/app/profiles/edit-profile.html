@@ -1,19 +1,20 @@
 <template name="editProfile">
+  {{#with profile }}
   <div id="new-call-title"> Edit Profile </div>
-  <a id="new-call-back" href="{{pathFor 'profiles'}}" style="color:black;"> <span aria-hidden="true" id="new-call-back-txt" class="icon-chevron-left"> </span> </a>
-  <a id="new-call-save" href="{{pathFor 'profiles'}}" style="color:black;"> <span aria-hidden="true" id="new-call-back-txt" class="icon-save"> </span> </a>
-  <span class="call-input-title edit-input-title">Name</span> <input value='Mary Sue' id="call-name-input" class="call-input-box edit" type="text">
+  <a id="new-call-back" href="{{pathFor 'profiles'}}" style="color:black;"> <span aria-hidden="true" class="new-call-back-txt icon-chevron-left"> </span> </a>
+  <div id="new-call-save" style="color:black;"> <span aria-hidden="true" class="new-call-back-txt icon-save"> </span> </div>
+  <span class="call-input-title edit-input-title">Name</span> <input value='{{name}}' id="call-name-input" class="call-input-box edit" type="text">
   <br>
-  <span class="call-input-title edit-input-title">Mobile</span> <input value=0423514256 id="call-mobile-input" class="call-input-box edit" type="tel">
+  <span class="call-input-title edit-input-title">Mobile</span> <input value={{number}} id="call-mobile-input" class="call-input-box edit" type="tel">
   <br>
-  <span class="call-input-title edit-input-title">Weight</span> <input value=23 id="call-weight-input" class="call-input-box call-input-weight edit edit-bot" type="tel">
-  <span class="call-input-title edit-age-title">Age</span> <input value=19 id="call-age-input" class="call-input-box call-input-weight edit edit-bot" type="tel">
+  <span class="call-input-title edit-input-title">Weight</span> <input value='{{weight}}' id="call-weight-input" class="call-input-box call-input-weight edit edit-bot" type="tel">
+  <span class="call-input-title edit-age-title">Age</span> <input value='{{age}}' id="call-age-input" class="call-input-box call-input-weight edit edit-bot" type="tel">
   <br>
 
   <div style="max-width:150px;max-height:100px;float:left;">
     <span id="loc-switch-title">Share Location</span>
     <label id="loc-toggle" class="switch-light candy" onclick="">
-      <input id="loc-toggle-checkbox" type="checkbox">
+      <input id="loc-toggle-checkbox" type="checkbox" {{#if locShare}}checked{{/if}}>
 	    <span>
 		    <span>Off</span>
 		    <span>On</span>
@@ -26,7 +27,7 @@
   <div style="max-width:150px;max-height:100px;float:right;">
     <span id="gender-switch-title">Gender</span>
     <label id="gender-toggle" class="switch-light candy" onclick="">
-      <input id="sex-toggle-checkbox" type="checkbox">
+      <input id="sex-toggle-checkbox" type="checkbox" {{#if female}}checked{{/if}}>
 	    <span>
 		    <span>Male</span>
 		    <span>Female</span>
@@ -35,4 +36,5 @@
       <a></a>
     </label>
   </div>
+  {{/with}}
 </template>

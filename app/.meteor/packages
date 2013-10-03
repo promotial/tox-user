@@ -20,9 +20,8 @@ accounts-base
 accounts-password
 appcache
 force-ssl
-audit-argument-checks
 preserve-inputs
 stylus
 iron-router
 underscore
-
+check
