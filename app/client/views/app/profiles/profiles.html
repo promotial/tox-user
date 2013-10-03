@@ -1,0 +1,18 @@
+<template name="profiles">
+  <div id="new-call-title"> Profiles </div>
+  <a id="new-call-back"> <span aria-hidden="true" id="new-call-back-txt" class="icon-chevron-left"> </span> </a>
+  <div id="profile-box">
+    {{#each profiles}}
+      {{> profileItem}}
+    {{/each}}
+  </div>
+  <a href="{{pathFor 'addProfile'}}" style="color:black;text-decoration:none;" id="add-profile"><span aria-hidden="true" class="icon-plus-sign"> </span>Add Profile</a>
+</template>
+
+<template name="profileItem">
+  <div class="profile-item">
+    <span class="profile-name"> {{name}} </span>
+    <a href="{{pathFor 'editProfile'}}" style="color:black;"> <span aria-hidden="true" class="icon-edit profile-edit"> </span> </a>
+    <span aria-hidden="true" class="icon-trash profile-delete"> </span>
+  </div>
+</template>

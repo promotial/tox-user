@@ -1,0 +1,16 @@
+<template name="home">
+  <!-- new call button -->
+  <a href={{pathFor 'newCall'}} id="newcall-btn" class="home-btn">  <span aria-hidden="true" class="icon-phone2"></span> <span class="home-btn-text"> New Call </span> </a>
+
+  <!-- profiles button -->
+  <a href={{pathFor 'profiles'}} id="profiles-btn" class="home-btn"> <span aria-hidden="true" class="icon-user"></span> <span class="home-btn-text"> Profiles </span> </a>
+
+  <!-- history button -->
+  <a href={{pathFor 'history'}} id="history-btn" class="home-btn"> <span aria-hidden="true" class="icon-clock"></span> <span class="home-btn-text"> History </span> </a>
+
+  <!-- about button -->
+  <a href="" id="about-btn" class="home-btn"> <span aria-hidden="true" class="icon-info"></span> <span class="home-btn-text"> About </span> </a>
+
+  <!-- tox logo -->
+  <img src="/img/tox-logo.png" id="tox-logo">
+</template>
