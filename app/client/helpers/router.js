@@ -27,10 +27,15 @@ Router.map(function () {
     yieldTemplates: { 'profiles': {to: "appView"} }
   });
 
-  //renders profiles into appView on '/profiles'
+  //renders newCall into appView on '/newCall'
   this.route("newCall", {
     template: "app",
-    yieldTemplates: { 'newCall': {to: "appView"} }
+    yieldTemplates: { 'newCall': {to: "appView"} },
+    before: function() {
+      Meteor.subscribe('profiles', function() {
+        Session.set('usedProfile',Profiles.findOne({})._id);
+      });
+    }
   });
 
   //renders history into appView on '/history'
@@ -45,13 +50,14 @@ Router.map(function () {
       //redirect users back to home "/" if profile doesn't exist
       if ( !Profiles.findOne({_id: this.params._id}) ) {
         this.redirect("/profiles");
+        this.stop();
       }
     },
     action: function () {
       //data property can't yet change context of child yields so using session
       Session.set("openProfile",this.params._id);
 
-      //renders editProfileView into appView
+      //renders editProfile into appView
       this.render("app");
       this.render('editProfile', { to: "appView" });
     }

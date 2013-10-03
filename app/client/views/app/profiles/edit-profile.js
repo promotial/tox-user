@@ -3,7 +3,7 @@ Template.editProfile.helpers({
     return Profiles.findOne({_id:Session.get("openProfile")});
   },
   female: function() {
-    if (Profiles.findOne({_id:Session.get("openProfile")}).gender===1) {
+    if (Profiles.findOne({_id:Session.get("openProfile")}).sex===1) {
       return true;
     }
   }

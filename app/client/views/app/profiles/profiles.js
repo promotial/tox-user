@@ -1,6 +1,6 @@
 Template.profiles.helpers({
   profiles: function() {
-    return Profiles.find();
+    return Profiles.find({},{fields:{name:1,_id:1}});
   }
 });
 

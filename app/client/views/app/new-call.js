@@ -10,8 +10,8 @@ Template.newCall.events({
     var params = {};
     params.name = trimInput(t.find('#call-name-input').value);
     params.number = ''+t.find('#call-mobile-input').value;
-    params.weight = t.find('#call-weight-input').value;
-    params.age = t.find('#call-age-input').value;
+    params.weight = +t.find('#call-weight-input').value;
+    params.age = +t.find('#call-age-input').value;
     if (t.find('#loc-toggle-checkbox').checked) {
       params.loc={lat:124,lon:325};
     }
@@ -25,15 +25,22 @@ Template.newCall.events({
       }
     });
   },
-  "change #call-profile-select": function() {
-    Session.set('usedProfile',document.getElementById("call-profile-select").value);
+  "change #call-profile-select": function(event) {
+    Session.set('usedProfile',Profiles.findOne({_id: event.currentTarget.value})._id);
   }
 });
 
 Template.newCall.helpers({
-  nameCall: function() {
-    console.log(Session.get("usedProfile"));
-    return Session.get('usedProfile');
+  profile: function() {
+    return Profiles.findOne({_id:Session.get("usedProfile")});
+  },
+  profileList:  function() {
+    return Profiles.find({},{fields:{name:1,_id:1}});
+  },
+  female: function() {
+    if (Profiles.findOne({_id:Session.get("usedProfile")}).sex===1) {
+      return true;
+    }
   }
 });
 

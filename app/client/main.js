@@ -1,3 +1,6 @@
 cordova = new Cordova();
-Meteor.subscribe('profiles');
-server.subscribe('calls');
+Meteor.startup(function() {
+  server.subscribe('calls');
+  Meteor.subscribe('profiles');
+  Session.set('openProfile', null);
+});
