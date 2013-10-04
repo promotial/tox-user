@@ -4,11 +4,17 @@ Router.configure({
   //redirects users that aren't logged in to login page (all paths)
   before: function () {
     if (!Meteor.user()) {
+      //start at login not register
+      Session.set("register",false);
+
       // render the loginView but keep the url in the browser the same
       this.render('login');
 
       // stop the rest of the before hooks and the action function
       this.stop();
+    } else {
+      Session.set("error",null);
+      Meteor.subscribe('profiles', Meteor.user().emails[0].address);
     }
   }
 });

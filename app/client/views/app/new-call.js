@@ -41,6 +41,11 @@ Template.newCall.helpers({
     if (Profiles.findOne({_id:Session.get("usedProfile")}).sex===1) {
       return true;
     }
+  },
+  selected: function(id) {
+    if (id===Session.get("usedProfile")) {
+      return true;
+    }
   }
 });
 

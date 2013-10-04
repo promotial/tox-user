@@ -4,8 +4,15 @@
     <div id="login-forms">
       <input id="login-username" class="call-input-box" type="email" placeholder="Email" autofocus required>
       <input id="login-pass" class="call-input-box" type="password" placeholder="Password" required>
-      <input type="submit" class="login-btn" id="login-btn" value="Log in">
-      <input type="submit" class="login-btn" id="register-btn" value="Register">
+      {{#if register}}
+        <input id="clogin-pass" class="call-input-box" type="password" placeholder="Confirm Password" required>
+        <input id="name-val" class="call-input-box" type="text" placeholder="Name" required>
+      {{/if}}
+      {{#if error}}
+      <div id="error-message" class="call-input-box {{#if register}} reg-error {{/if}}"> {{error}} </div>
+      {{/if}}
+      <input type="submit" class="login-btn {{#if register}} reg-box {{/if}}" id="login-btn" value="Log in">
+      <input type="submit" class="login-btn {{#if register}} reg-box {{/if}}" id="register-btn" value={{#if register}}"Cancel"{{else}}"Register"{{/if}}>
       <img id="google-sign-in" class="sign-in-btn" src="/img/signin-google.png">
       <img id="facebook-sign-in" class="sign-in-btn" src="/img/signin-facebook.png">
       <img id="twitter-sign-in" class="sign-in-btn" src="/img/signin-twitter.png">
