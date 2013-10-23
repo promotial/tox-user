@@ -1,74 +1,50 @@
 /* HOME BUTTONS */
 
-//generic classes
+//home button class
 .home-btn
   position absolute
-  max-width 70px
-  font-size 50px
-  line-height 8px
-  color black
-  text-decoration none
-  text-align center
-  @media (min-width: 590px)
-    font-size 55px
-    max-width 90px
+  width 37%
   &:hover
-    text-decoration none
+    opacity 0.7
+.home-btn-img
+  width 100%
+  height auto
+  border none
 .home-btn-text
-  font-size 14px
-  @media (min-width: 590px)
-    font-size 18px
-//specific home buttons
-#newcall-btn
-  left 14%
-  top 17%
-  @media (min-width: 560px)
-    left 22%
-    top 20%
-  @media (min-height: 400px) and (max-width: 280px)
-    top 20%
-  @media (max-height: 400px) and (min-width: 440px)
-    top 11%
-    left 15%
-#profiles-btn
-  right 14%
-  top 17%
-  @media (min-width: 560px)
-    right 22%
-    top 20%
-  @media (min-height: 400px) and (max-width: 280px)
-    top 20%
-  @media (max-height: 400px) and (min-width: 440px)
-    top 11%
-    right 15%
-#history-btn
-  left 14%
-  bottom 30%
-  @media (min-width: 560px)
-    left 22%
-  @media (min-height: 400px) and (max-width: 280px)
-    bottom 35%
-  @media (max-height: 400px) and (min-width: 440px)
-    bottom 20%
-    left 15%
-#about-btn
-  right 14%
-  bottom 30%
-  @media (min-width: 560px)
-    right 22%
-  @media (min-height: 400px) and (max-width: 280px)
-    bottom 35%
-  @media (max-height: 400px) and (min-width: 440px)
-    bottom 20%
-    right 15%
-#tox-logo
+  font-size 0.3em
+  font-family "track"
+  color #ED3533
+  @media (min-height:200px)
+    font-size 0.5em
+  @media (min-height:300px)
+    font-size 0.6em
+  @media (min-height:400px)
+    font-size 0.7em
+  @media (min-height:500px)
+    font-size 0.8em
+  @media (min-height:600px)
+    font-size 0.9em
+  @media (min-height:700px)
+    font-size 1.1em
   position absolute
-  right -2px
-  bottom -4px
-  width 43px
-  height 76px
-  @media (min-width: 590px)
-    width 53px
-    height 92px
-
-
+  text-align center
+  bottom 8%
+  left 0
+  right 0
+  margin 0 auto
+//new call button
+#new-call-btn
+  left 9%
+  top 21%
+//profile button
+#profiles-btn
+  right 9%
+  top 21%
+//history button
+#history-btn
+  left 9%
+  bottom 21%
+//about button
+#about-btn
+  right 9%
+  bottom 21%
