@@ -24,7 +24,7 @@ Template.login.events({
         return Session.set('error',"Please enter a name");
         return false;
       }
-      Accounts.createUser({email:email,password:password,profile:{name:name}}, function(err) {
+      Accounts.createUser({email:email,password:password,profile:{name:name,language:"de"}}, function(err) {
         if (err) {
           if (err.reason === "Match failed") {
             err.reason = "Fill in all values";
@@ -58,11 +58,9 @@ Template.login.events({
     if (Session.get('register')) {
       Session.set('register',false);
       Session.set('error',null);
-      e.currentTarget.value="Register";
     } else {
       Session.set('register',true);
       Session.set('error',null);
-      e.currentTarget.value="Cancel";
     }
   }
 });
@@ -76,5 +74,4 @@ Template.login.helpers({
   }
 });
 
-Template.login.preserve(["#login-forms"]);
 

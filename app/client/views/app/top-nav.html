@@ -5,6 +5,17 @@
   <!-- logout button -->
   <img id="logout-btn" src="/img/nav/logout.png">
 
-  <!-- language dropdown -->
+  <!-- flag button -->
   <img id="flag-btn" src="/img/nav/flag.png">
+
+  {{#if lang}}
+  <!-- language dropdown -->
+  <img id="lang-dropdown" src="/img/nav/dropdown.png">
+  <!-- language flag icons -->
+  <div id="flag-icons">
+    <img id="en" class="lang-dropdown-flag" src="/img/lang/en.png">
+    <img id="de" class="lang-dropdown-flag" src="/img/lang/de.png">
+    <img id="fr" class="lang-dropdown-flag" src="/img/lang/fr.png">
+  </div>
+  {{/if}}
 </template>

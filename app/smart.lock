@@ -9,10 +9,10 @@
       "cordova": {}
     },
     "packages": {
-      "iron-router": {
+     "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "11f2d9b7f8fc3138634461a956d03668e780cca2"
+        "commit": "97ce4e61badaea7987682a530ac627c5c1c116aa"
       },
       "cordova": {
         "git": "https://github.com/raix/Meteor-cordova.git",

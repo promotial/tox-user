@@ -12,8 +12,8 @@ Accounts.validateNewUser(function (user) {
 });
 
 Accounts.onCreateUser(function(options, user) {
-  if (options.profile.name) {
+  if (options.profile.name && options.profile.language) {
     return user;
   }
-  throw new Meteor.Error(403, "Please enter name");
+  throw new Meteor.Error(403, "ERROR!");
 });

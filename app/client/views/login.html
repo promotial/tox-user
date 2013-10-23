@@ -5,30 +5,30 @@
       <span class="forms-border-top {{#if register}}border-register{{/if}}"></span>
       {{#if register}}
         <!-- name form -->
-        <input id="register-name" class="login-form" type="text" placeholder="Name" required>
+        <input id="register-name" class="login-form" type="text" placeholder="{{multiLang 'NAME'}}" required>
         <div id="register-name-side" class="login-form-side">
             <span class="login-form-side-text icon-tags"></span>
         </div>
       {{/if}}
       <!-- login username form -->
-      <input id="login-username{{#if register}}-register{{/if}}" class="login-form" type="email" placeholder="Email" autofocus required>
+      <input id="login-username{{#if register}}-register{{/if}}" class="login-form" type="email" placeholder="{{multiLang 'EMAIL'}}" autofocus required>
       <div id="login-username-side{{#if register}}-register{{/if}}" class="login-form-side">
           <span class="login-form-side-text icon-user"></span>
       </div>
       <!-- login pass form -->
-      <input id="login-pass{{#if register}}-register{{/if}}" class="login-form" type="password" placeholder="Password" required>
+      <input id="login-pass{{#if register}}-register{{/if}}" class="login-form" type="password" placeholder="{{multiLang 'PASSWORD'}}" required>
       <div id="login-pass-side{{#if register}}-register{{/if}}" class="login-form-side">
         <span class="login-form-side-text icon-lock"></span>
       </div>
       {{#if register}}
         <!-- confirm login pass form -->
-        <input id="register-cpass" class="login-form" type="password" placeholder="Confirm Password" required>
+        <input id="register-cpass" class="login-form" type="password" placeholder="{{multiLang 'CONFIRM_PASSWORD'}}" required>
         <div id="register-cpass-side" class="login-form-side">
             <span class="login-form-side-text icon-repeat"></span>
         </div>
       {{/if}}
-      <input type="submit" class="login-btn {{#if register}} login-btn-register {{/if}}" id="login-btn" value="LOGIN">
-      <input type="submit" class="login-btn {{#if register}} login-btn-register {{/if}}" id="register-btn" value={{#if register}}"Cancel"{{else}}"REGISTER"{{/if}}>
+      <input type="submit" class="login-btn {{#if register}} login-btn-register {{/if}}" id="login-btn" value="{{multiLang 'LOGIN'}}">
+      <input type="submit" class="login-btn {{#if register}} login-btn-register {{/if}}" id="register-btn" value="{{#if register}} {{multiLang 'CANCEL'}} {{else}} {{multiLang 'REGISTER'}} {{/if}}">
       <span class="forms-border-bottom {{#if register}}border-register{{/if}}"></span>
     </div>
     </div>

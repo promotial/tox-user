@@ -25,7 +25,7 @@ Router.configure({
       this.stop();
     } else {
       Session.set("error",null);
-      Meteor.subscribe('profiles');
+      Session.set("lang",false);
     }
   },
 
@@ -44,7 +44,10 @@ Router.map(function () {
   //renders profiles into appView on '/profiles'
   this.route("profiles", {
     template: "app",
-    yieldTemplates: { 'profiles': {to: "appView"} }
+    yieldTemplates: { 'profiles': {to: "appView"} },
+    waitOn: function () {
+      return Meteor.subscribe('profiles');
+    }
   });
 
   //renders newCall into appView on '/newCall'

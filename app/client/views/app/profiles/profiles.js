@@ -5,7 +5,7 @@ Template.profiles.helpers({
 });
 
 Template.profiles.rendered = function() {
-  Meteor.subscribe('profiles', Meteor.user().emails[0].address);
+  Meteor.subscribe('profiles');
 };
 
 Template.profiles.events({

@@ -1,24 +1,25 @@
 <template name="home">
   <!-- new call button -->
-  <a id="new-call-btn" class="home-btn" href="{{pathFor 'newCall'}}">
+  <a id="new-call-btn" class="home-btn" href="/">
       <img class="home-btn-img" src="/img/home/newcallicon.png">
-      <span id="new-call-btn-text" class="home-btn-text">New Call</span>
+      <span id="new-call-btn-text" class="home-btn-text">{{multiLang 'NEW_CALL'}}</span>
   </a>
 
   <!-- profiles button -->
-  <a id="profiles-btn" class="home-btn" href="{{pathFor 'profiles'}}">
+  <a id="profiles-btn" class="home-btn" href="/">
       <img class="home-btn-img"  src="/img/home/profileicon.png">
-      <span id="profiles-btn-text" class="home-btn-text">Profiles</span>
+      <span id="profiles-btn-text" class="home-btn-text">{{multiLang 'PROFILES'}}</span>
   </a>
 
   <!-- history button -->
-  <a id="history-btn" class="home-btn" href="{{pathFor 'history'}}">
+  <a id="history-btn" class="home-btn" href="/">
     <img class="home-btn-img"  src="/img/home/historyicon.png">
-    <span id="history-btn-text" class="home-btn-text">History</span>
+    <span id="history-btn-text" class="home-btn-text">{{multiLang 'HISTORY'}}</span>
   </a>
+
   <!-- about button -->
   <a id="about-btn" class="home-btn" href="/">
     <img class="home-btn-img" src="/img/home/abouticon.png">
-    <span id="about-btn-text" class="home-btn-text">About</span>
+    <span id="about-btn-text" class="home-btn-text">{{multiLang 'ABOUT'}}</span>
   </a>
 </template>
