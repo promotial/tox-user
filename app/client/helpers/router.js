@@ -1,3 +1,14 @@
+userDocHandle = {
+  ready: function () {
+    if(!Accounts.loginServicesConfigured())
+      return false;
+    if(Meteor.loggingIn()) {
+      return false;
+    }
+    return true;
+  }
+};
+
 Router.configure({
   layoutTemplate: 'layout',
 
@@ -14,9 +25,12 @@ Router.configure({
       this.stop();
     } else {
       Session.set("error",null);
-      Meteor.subscribe('profiles', Meteor.user().emails[0].address);
+      Meteor.subscribe('profiles');
     }
-  }
+  },
+
+  //check user isn't logging in when doing login checks
+  waitOn: function() {return userDocHandle;}
 });
 
 Router.map(function () {

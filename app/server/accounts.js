@@ -13,10 +13,6 @@ Accounts.validateNewUser(function (user) {
 
 Accounts.onCreateUser(function(options, user) {
   if (options.profile.name) {
-    Profiles.insert({
-      name:options.profile.name,
-      user:options.email
-    });
     return user;
   }
   throw new Meteor.Error(403, "Please enter name");

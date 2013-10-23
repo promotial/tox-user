@@ -6,18 +6,17 @@ Template.login.events({
       return val.replace(/^\s*|\s*$/g, "");
     };
 
-    // retrieve the input field values
-    var email = trimInput(t.find('#login-username').value);
-    var password = t.find('#login-pass').value;
-
-    if (password==="" || email==="") {
-      Session.set('error',"Fill in all values");
-      return false;
-    }
-
     if (Session.get('register')) {
-      var name = t.find('#name-val').value;
-      if (password !== t.find('#clogin-pass').value) {
+      // retrieve the input field values
+      var email = trimInput(t.find('#login-username-register').value);
+      var password = t.find('#login-pass-register').value;
+
+      if (password==="" || email==="") {
+        Session.set('error',"Fill in all values");
+        return false;
+      }
+      var name = t.find('#register-name').value;
+      if (password !== t.find('#register-cpass').value) {
         return Session.set('error',"Passwords do not match");
         return false;
       }
@@ -33,10 +32,14 @@ Template.login.events({
           Session.set('error',err.reason);
         } else {
           server.subscribe('calls');
-          Meteor.subscribe('profiles', email);
+          Meteor.subscribe('profiles');
         }
       });
     } else {
+      // retrieve the input field values
+      var email = trimInput(t.find('#login-username').value);
+      var password = t.find('#login-pass').value;
+
       Meteor.loginWithPassword(email, password, function(err) {
         if (err) {
           if (err.reason === "Match failed") {
@@ -45,7 +48,7 @@ Template.login.events({
           Session.set('error',err.reason);
         } else {
           server.subscribe('calls');
-          Meteor.subscribe('profiles', email);
+          Meteor.subscribe('profiles');
         }
       });
     }
@@ -72,4 +75,6 @@ Template.login.helpers({
     return Session.get('error');
   }
 });
+
+Template.login.preserve(["#login-forms"]);
 

@@ -1,5 +1,5 @@
-Meteor.publish('profiles', function(email) {
+Meteor.publish('profiles', function() {
   if (this.userId) {
-    return Profiles.find({user: {$in:[this.userId,email]} });
+    return Profiles.find({user:this.userId});
   }
 });

@@ -1,95 +1,198 @@
+//Login Container
 #login
-  background dark-pink
+  background #cccccc
   height 100%
   width 100%
-#login-top
-  position fixed
-  height 80px
-  width 100%
-#login-forms
-  position relative
-  height 100%
-  width 100%
-  top 80px
+
+//Tox title (top)
 #tox-title
-  position relative
-  margin-left -90px
-  top 7px
-  left 53%
-  width 140px
-  height 75px
-#login-username
+  margin auto
   position absolute
-  left 4.5%
-  font-size 13px
-  line-height 19px
-  width 86%
-  box-sizing border-box
-  border 1px black solid
-#login-pass
+  left 0
+  right 0
+  top 2%
+  height 24%
+  width auto
+
+/* LOGIN/REGISTER FORMS */
+
+//Login/register forms container
+#login-forms
   position absolute
-  top 7%
-  left 4.5%
-  font-size 13px
-  line-height 19px
-  width 86%
+  background #ffffff
+  border-radius 7px
   box-sizing border-box
-  border 1px black solid
-#clogin-pass
+  border-left none
+  border-right none
+  height auto
+  width 88%
+  left 6%
+  top 30%
+  bottom 23%
+.register-forms
+  bottom 2% !important
+//top border for container
+.forms-border-top
+  width 100%
+  border-top-left-radius 7px
+  border-top-right-radius 7px
+  height 14%
   position absolute
-  top 14%
-  left 4.5%
-  font-size 13px
-  line-height 19px
-  width 86%
-  box-sizing border-box
-  border 1px black solid
-#name-val
+  top 0
+  background #666666
+//bottom border for container
+.forms-border-bottom
+  width 100%
+  border-bottom-left-radius 7px
+  border-bottom-right-radius 7px
+  height 14%
   position absolute
-  top 21%
-  left 4.5%
-  font-size 13px
-  line-height 19px
-  width 86%
-  box-sizing border-box
-  border 1px black solid
-.sign-in-btn
+  bottom 0
+  background #666666
+.border-register
+  height 10%
+//login form + side
+.login-form
   width 70%
-  height 8%
-  position fixed
+  height 15%
+  font-size 0.5em
+  position absolute
+  @media (min-height:200px)
+    font-size 0.6em
+  @media (min-height:300px)
+    font-size 0.8em
+  @media (min-height:400px)
+    font-size 1em
+  @media (min-height:500px)
+    font-size 1.2em
+  @media (min-height:600px)
+    font-size 1.4em
+  box-sizing border-box
+  border-top-right-radius 3px
+  border-bottom-right-radius 3px
+  border solid #d2d4d7 1px
+  border-left none
+  padding 0.4em
+  color black
+  background-color white
+.login-form-side
+  width 14%
+  height 15%
+  text-align center
+  display table
+  position absolute
+  border-top-left-radius 3px
+  border-bottom-left-radius 3px
+  border solid #d2d4d7 1px
+  box-sizing border-box
+  background #EDEDE5
+.login-form-side-text
+  color #ED3533
+  font-size 0.6em
+  padding-top 10%
+  display table-cell
+  vertical-align middle
+  @media (min-height:200px)
+    font-size 0.9em
+  @media (min-height:300px)
+    font-size 1.2em
+  @media (min-height:400px)
+    font-size 1.5em
+  @media (min-height:500px)
+    font-size 1.9em
+  @media (min-height:600px)
+    font-size 2.2em
+//email form + side
+#login-username
+  right 8%
+  top 27%
+#login-username-side
+  left 8%
+  top 27%
+#login-username-register
+  height 12%
+  right 8%
+  top 34%
+#login-username-side-register
+  height 12%
+  left 8%
+  top 34%
+//password form + side
+#login-pass
+  top 48%
+  right 8%
+#login-pass-side
+  left 8%
+  top 48%
+#login-pass-register
+  height 12%
+  top 51%
+  right 8%
+#login-pass-side-register
+  height 12%
+  left 8%
+  top 51%
+//confirm password form + side
+#register-cpass
+  height 12%
+  top 68%
+  right 8%
+#register-cpass-side
+  height 12%
+  left 8%
+  top 68%
+//confirm password form + side
+#register-name
+  height 12%
+  top 17%
+  right 8%
+#register-name-side
+  height 12%
+  left 8%
+  top 17%
+//login/register button class
+.login-btn
+  width 40%
+  height 15%
+  border none
+  border-radius 2px
+  color white
+  bottom 3.5%
+  font-family "track"
+  z-index 100
+  border-bottom 7px solid #B31011
+  position absolute
+  background-color #ED3533
+  font-size 0.3em
+  @media (min-height:200px)
+    font-size 0.5em
+  @media (min-height:300px)
+    font-size 0.7em
+  @media (min-height:400px)
+    font-size 0.9em
+  @media (min-height:500px)
+    font-size 1.1em
+  @media (min-height:600px)
+    font-size 1.3em
   &:hover
-    opacity 0.9
-#google-sign-in
-  bottom 21%
-  left 15%
-#facebook-sign-in
-  bottom 12%
-  left 15%
-#twitter-sign-in
-  bottom 3%
-  left 15%
+    border-bottom 7px solid #8e1011
+    background-color #c83534
+.login-btn-register
+  height 11%
+  bottom 1.6%
+//login button
 #login-btn
-  position relative
-  top 19%
-  right 7.5%
-  float right
+  right 7%
+//register/cancel button
 #register-btn
-  position relative
-  top 19%
-  left 6.8%
-  float left
-#error-message
-  position relative
-  top 13.5%
-  width 80%
-  height 8px
-  color red
-  left 5.8%
-  float left
-.reg-box
-  top 33% !important
-.reg-error
-  top 27% !important
-  height 4px !important
+  left 7%
+/* ---LOGIN/REGISTER FORMS */
 
-
+//Third Party sign-in button
+.sign-in-btn
+  position absolute
+  bottom 2%
+  height 15%
+  width auto
+  &:hover
+    opacity 0.7

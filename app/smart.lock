@@ -12,7 +12,7 @@
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "6fcfa0bbc33e3c102002ef9eaf0d9dcdc1058f8d"
+        "commit": "11f2d9b7f8fc3138634461a956d03668e780cca2"
       },
       "cordova": {
         "git": "https://github.com/raix/Meteor-cordova.git",

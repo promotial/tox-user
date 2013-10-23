@@ -1,21 +1,41 @@
 <template name="login">
   <div id="login">
-    <div id="login-top"><img id="tox-title" src="/img/tox-title.png"></div>
-    <div id="login-forms">
-      <input id="login-username" class="call-input-box" type="email" placeholder="Email" autofocus required>
-      <input id="login-pass" class="call-input-box" type="password" placeholder="Password" required>
+    <img id="tox-title" src="/img/tox-logo.png">
+    <div id="login-forms" class="{{#if register}}register-forms{{/if}}">
+      <span class="forms-border-top {{#if register}}border-register{{/if}}"></span>
       {{#if register}}
-        <input id="clogin-pass" class="call-input-box" type="password" placeholder="Confirm Password" required>
-        <input id="name-val" class="call-input-box" type="text" placeholder="Name" required>
+        <!-- name form -->
+        <input id="register-name" class="login-form" type="text" placeholder="Name" required>
+        <div id="register-name-side" class="login-form-side">
+            <span class="login-form-side-text icon-tags"></span>
+        </div>
       {{/if}}
-      {{#if error}}
-      <div id="error-message" class="call-input-box {{#if register}} reg-error {{/if}}"> {{error}} </div>
+      <!-- login username form -->
+      <input id="login-username{{#if register}}-register{{/if}}" class="login-form" type="email" placeholder="Email" autofocus required>
+      <div id="login-username-side{{#if register}}-register{{/if}}" class="login-form-side">
+          <span class="login-form-side-text icon-user"></span>
+      </div>
+      <!-- login pass form -->
+      <input id="login-pass{{#if register}}-register{{/if}}" class="login-form" type="password" placeholder="Password" required>
+      <div id="login-pass-side{{#if register}}-register{{/if}}" class="login-form-side">
+        <span class="login-form-side-text icon-lock"></span>
+      </div>
+      {{#if register}}
+        <!-- confirm login pass form -->
+        <input id="register-cpass" class="login-form" type="password" placeholder="Confirm Password" required>
+        <div id="register-cpass-side" class="login-form-side">
+            <span class="login-form-side-text icon-repeat"></span>
+        </div>
       {{/if}}
-      <input type="submit" class="login-btn {{#if register}} reg-box {{/if}}" id="login-btn" value="Log in">
-      <input type="submit" class="login-btn {{#if register}} reg-box {{/if}}" id="register-btn" value={{#if register}}"Cancel"{{else}}"Register"{{/if}}>
-      <img id="google-sign-in" class="sign-in-btn" src="/img/signin-google.png">
-      <img id="facebook-sign-in" class="sign-in-btn" src="/img/signin-facebook.png">
-      <img id="twitter-sign-in" class="sign-in-btn" src="/img/signin-twitter.png">
+      <input type="submit" class="login-btn {{#if register}} login-btn-register {{/if}}" id="login-btn" value="LOGIN">
+      <input type="submit" class="login-btn {{#if register}} login-btn-register {{/if}}" id="register-btn" value={{#if register}}"Cancel"{{else}}"REGISTER"{{/if}}>
+      <span class="forms-border-bottom {{#if register}}border-register{{/if}}"></span>
     </div>
-  </div>
+    </div>
+    {{#unless register}}
+    <img id="facebook-sign-in" style="left:6%" class="sign-in-btn" src="/img/fbicon.png">
+    <img id="twitter-sign-in" style="left:0;right:0;margin: auto;" class="sign-in-btn" src="/img/twittericon.png">
+    <img id="google-sign-in" style="right:6%"class="sign-in-btn" src="/img/gplusicon.png">
+    {{/unless}}
+    </div>
 </template>
