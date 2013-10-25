@@ -9,9 +9,10 @@
         <option value="{{_id}}" {{#if selected}}selected{{/if}}>{{name}}</option>
       {{/each}}
     </select>
-    <input class="call-input" placeholder="&nbsp;{{multiLang 'AGE'}}" type="number" id="age-input">
-    <input class="call-input" placeholder="&nbsp;{{multiLang 'WEIGHT'}}" type="number" id="weight-input">
-    <input class="call-input" placeholder="&nbsp;{{multiLang 'MOBILE'}}" type="number" id="mobile-input">
+    {{#with profile}}
+    <input class="call-input" value="{{age}}" placeholder="&nbsp;{{multiLang 'AGE'}}" type="number" id="age-input">
+    <input class="call-input" value="{{weight}}"placeholder="&nbsp;{{multiLang 'WEIGHT'}}" type="number" id="weight-input">
+    <input class="call-input" value="{{mobile}}"placeholder="&nbsp;{{multiLang 'MOBILE'}}" type="number" id="mobile-input">
     <label id="gender-select" class="switch-light switch-candy" onclick="">
       <input type="checkbox">
 	  <span>
@@ -34,51 +35,9 @@
       <img class="attach-photo" id="attach-photo-2" src="/img/new-call/no-image.png">
       <img class="attach-photo" id="attach-photo-3" src="/img/new-call/no-image.png">
     </div>
+    {{/with}}
+  </div>
+  <div id="init-call-btn">
+    <span class="icon-phone"></span> INITIATE CALL
   </div>
 </template>
-
-<!-- {{#with profile}}
-<div id="new-call-title"> New Call </div>
-<a id="new-call-back"> <span aria-hidden="true" class="new-call-back-txt icon-chevron-left"> </span> </a>
-<select id="call-profile-select" >
-{{#each profileList}}
-  <option value={{_id}} {{#if selected}}selected{{/if}}>{{name}}</option>
-{{/each}}
-</select>
-<span class="call-input-title">Name</span> <input value='{{name}}' id="call-name-input" class="call-input-box" type="text">
-<br>
-<span class="call-input-title">Mobile</span> <input value='{{number}}' id="call-mobile-input" class="call-input-box" type="tel">
-<br>
-<span class="call-input-title">Weight</span> <input value='{{weight}}' id="call-weight-input" class="call-input-box call-input-weight" type="tel">
-<span class="call-input-title edit-age-title">Age</span> <input value='{{age}}' id="call-age-input" class="call-input-box call-input-age" type="tel">
-<br>
-
-<div style="max-width:150px;max-height:100px;float:left;">
-  <span id="loc-switch-title">Location</span>
-  <label id="loc-toggle" class="switch-light candy" onclick="">
-    <input id="loc-toggle-checkbox" type="checkbox" {{#if locShare}}checked{{/if}}>
-      <span>
-          <span>Off</span>
-          <span>On</span>
-      </span>
-    </input>
-    <a></a>
-  </label>
-</div>
-
-<div style="max-width:150px;max-height:100px;float:right;">
-  <span id="gender-switch-title">Gender</span>
-  <label id="gender-toggle" class="switch-light candy" onclick="">
-    <input id="sex-toggle-checkbox" type="checkbox" {{#if female}}checked{{/if}}>
-      <span>
-          <span>Male</span>
-          <span>Female</span>
-      </span>
-    </input>
-    <a></a>
-  </label>
-</div>
-{{/with}}
-
-<div id="attach-photos-btn"> <span style="display: table-cell; vertical-align: middle;">Attach Photos</span> </div>
-<div id="new-call-start"> <span style="display: table-cell; vertical-align: middle;"> <span aria-hidden="true" class="icon-phone"></span> Initiate Call</span> </div> -->

@@ -1,5 +1,6 @@
 <template name="profiles">
-  <div id="new-call-title"> Profiles </div>
+  <a style="text-decoration:none;" href="{{pathFor 'home'}}"><span id="back-btn">{{multiLang 'BACK'}}</span></a>
+  <div id="newcall-title">{{multiLang 'NEW_CALL' 'UPPER'}}</div>
   <a id="new-call-back"> <span aria-hidden="true" class="new-call-back-txt icon-chevron-left"> </span> </a>
   <div id="profile-box">
     {{#each profiles}}
