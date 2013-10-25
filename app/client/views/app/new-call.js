@@ -40,7 +40,10 @@ Template.newCall.helpers({
   female: function() {
     if (Profiles.findOne({_id:Session.get("usedProfile")}).sex===1) {
       return true;
-    }
+    } else {return false;}
+  },
+  location: function() {
+    return !(Profiles.findOne({_id:Session.get("usedProfile")}).locShare);
   },
   selected: function(id) {
     if (id===Session.get("usedProfile")) {

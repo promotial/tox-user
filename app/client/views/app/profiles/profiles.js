@@ -4,12 +4,13 @@ Template.profiles.helpers({
   }
 });
 
-Template.profiles.rendered = function() {
-  Meteor.subscribe('profiles');
-};
-
 Template.profiles.events({
   "click .profile-delete": function(e) {
     Profiles.remove(e.currentTarget.id);
+    if (Profiles.find().count()===0) {
+      Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
+        Session.set('usedProfile',Profiles.findOne({})._id);
+      })
+    } else {Session.set('usedProfile',Profiles.findOne({})._id);};
   }
 });

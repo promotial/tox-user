@@ -5,13 +5,15 @@ Template.editProfile.helpers({
   female: function() {
     if (Profiles.findOne({_id:Session.get("openProfile")}).sex===1) {
       return true;
-    }
+    } else {return false;}
+  },
+  location: function() {
+    return !(Profiles.findOne({_id:Session.get("openProfile")}).locShare);
   }
 });
 
 Template.editProfile.events({
-  "click #new-call-save": function(e,t) {
-    e.preventDefault();
+  "click #add-btn": function(e,t) {
 
     var trimInput = function (val) {
       return val.replace(/^\s*|\s*$/g, "");
@@ -19,16 +21,16 @@ Template.editProfile.events({
 
     // retrieve the input field values
     var params = {};
-    params.name = trimInput(t.find('#call-name-input').value);
-    params.number = ''+t.find('#call-mobile-input').value;
-    params.weight = +t.find('#call-weight-input').value;
-    params.age = +t.find('#call-age-input').value;
+    params.name = trimInput(t.find('#name-input-profile').value);
+    params.number = trimInput(''+t.find('#mobile-input-profile').value);
+    params.weight = trimInput(''+t.find('#weight-input-profile').value);
+    params.age = trimInput(''+t.find('#age-input-profile').value);
     params.locShare = false;
     params.sex = 0;
-    if (t.find('#loc-toggle-checkbox').checked) {
+    if (!t.find('#locselect').checked) {
       params.locShare=true;
     }
-    if (t.find('#sex-toggle-checkbox').checked) {
+    if (t.find('#sexselect').checked) {
       params.sex=1;
     }
 

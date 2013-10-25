@@ -5,7 +5,6 @@ Accounts.config({
 
 // Validate Email, sending a specific error message on failure.
 Accounts.validateNewUser(function (user) {
-  console.log(user);
   if (!(user.emails[0].address)) {
     throw new Meteor.Error(403, "Please enter an email");
   }

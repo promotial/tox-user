@@ -2,6 +2,8 @@ var defaultLanguage = "de";
 
 var Language = {
   en: {
+    EDIT_PROFILE:"Edit Profile",
+    ADD:"Add",
     YES:"Yes",
     NO:"No",
     REGISTER:"Register",
@@ -52,7 +54,6 @@ var Language = {
     WEIGHT:"Weight",
     WHEN:"When",
     MOBILE:"Mobile",
-    SAVED_PROFILES:"Saved Profiles",
     NEW_PROFILE:"New Profile",
     GENDER:"Gender",
     DELETE:"Delete",
@@ -60,6 +61,8 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
+    EDIT_PROFILE:"Edit Profile",
+    ADD:"Add",
     YES:"Ja",
     NO:"Nein",
     REGISTER:"Register",
@@ -110,7 +113,6 @@ var Language = {
     WEIGHT:"Gewicht",
     WHEN:"Wann",
     MOBILE:"Handy",
-    SAVED_PROFILES:"Gespeicherte Profile",
     NEW_PROFILE:"Neues Profil",
     GENDER:"Geschlecht",
     DELETE:"Löschen",
@@ -118,6 +120,8 @@ var Language = {
     INITIATE_CALL:"Anrufen"
   },
   fr: {
+    EDIT_PROFILE:"Edit Profile",
+    ADD:"Add",
     YES:"Oui",
     NO:"Non",
     REGISTER:"Register",
@@ -168,7 +172,6 @@ var Language = {
     WEIGHT:"Poids",
     WHEN:"Quand",
     MOBILE:"Mobile",
-    SAVED_PROFILES:"Profils Sauvegardés",
     NEW_PROFILE:"Nouveau Profil",
     GENDER:"Sex",
     DELETE:"Supprimer",

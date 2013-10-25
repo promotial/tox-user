@@ -47,7 +47,13 @@ Router.map(function () {
     template: "app",
     yieldTemplates: { 'profiles': {to: "appView"} },
     waitOn: function () {
-      return Meteor.subscribe('profiles');
+      return Meteor.subscribe('profiles', function() {
+        if (Profiles.find().count()===0) {
+          Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
+            Session.set('usedProfile',Profiles.findOne({})._id);
+          })
+        } else {Session.set('usedProfile',Profiles.findOne({})._id);};
+      });
     }
   });
 
@@ -88,7 +94,8 @@ Router.map(function () {
       //renders editProfile into appView
       this.render("app");
       this.render('editProfile', { to: "appView" });
-    }
+    },
+    waitOn: function () {return Meteor.subscribe('profiles') }
   });
 
   //renders profiles into appView on '/profiles'

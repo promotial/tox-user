@@ -7,7 +7,9 @@
   color white
   font-family "Arial"
   font-weight 100
-
+.profiles-title
+  margin-left 0% !important
+  text-align center !important
 //back button
 #back-btn
   left 10px
@@ -32,6 +34,30 @@
   &:hover
     border-bottom 7px solid #8e1011
     background-color #c83534
+#add-btn
+  right 10px
+  top 6px
+  width 20%
+  height 38px
+  text-align center
+  line-height 50px
+  font-size 0.95em
+  @media (min-width:300px)
+    font-size 1.1em
+  @media (min-width:400px)
+    font-size 1.3em
+  border none
+  border-radius 2px
+  color white
+  font-family "track"
+  z-index 100
+  border-bottom 7px solid #B31011
+  position absolute
+  background-color #ED3533
+  &:hover
+    border-bottom 7px solid #8e1011
+    background-color #c83534
+
 /* NEW CALL FORMS */
 
 //new call forms container
@@ -77,7 +103,6 @@
   left 5%
   top 34%
   width 40%
-  height 8%
   height 8%
 //locoation switch title
 #loc-input-title
@@ -159,5 +184,58 @@
   font-size 50px
   color #56e066
   bottom 1%
-  left 13%
+  left 10%
 /* --NEW CALL FORMS */
+
+//age input form
+#age-input-profile
+  left 5%
+  top 32%
+  width 40%
+  height 10%
+//name input form
+#name-input-profile
+  left 5%
+  top 11%
+  width 90%
+  height 10%
+//weight input form
+#weight-input-profile
+  right 5%
+  top 32%
+  width 40%
+  height 10%
+//mobile input form
+#mobile-input-profile
+  left 5%
+  top 54%
+  width 40%
+  height 10%
+//locoation switch title
+#loc-input-title-profile
+  left 4%
+  top 76%
+  width 60%
+  height 10%
+  border none
+  background none
+//gender select switch
+#gender-select-profile
+  right 5%
+  position absolute
+  top 54.2%
+  height 10.5%
+  border-radius 0
+  width 40%
+  box-sizing border-box
+  min-width 120px
+//location select switch
+#location-select-profile
+  right 5%
+  position absolute
+  top 75.8%
+  height 10.5%
+  border-radius 0
+  width 40%
+  box-sizing border-box
+  min-width 120px

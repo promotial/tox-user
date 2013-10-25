@@ -19,66 +19,82 @@ Meteor.methods({
   },
   newProfile: function (params) {
     if (!(this.userId)) {throw new Meteor.Error(401, "Access Denied!");}
-    if (params.name) {
-      check(params.name, String);
-    }
-    if (params.number) {
+
+    if (params.number && params.number !== "") {
       check(params.number, String);
-      if (params.number.length>8 && params.number.length<16) {
-        throw("Error: Enter real mobile number");
+    } else if (params.number === "") {params.number = undefined;}
+
+    if (params.age !== null && params.age !== undefined && params.age !== "") {
+      check(params.age, String);
+      if (parseInt(params.age,10) > 140) {
+        throw new Meteor.Error(400, "Error: Enter real age");
       }
-    }
-    if (params.age !== null && params.age !== undefined) {
-      check(params.age, Match.Integer);
-      if (params.number.age < 140) {
-        throw("Error: Enter real age");
-      }
-    }
+    } else if (params.age === "") {params.age = undefined;}
+
     if (params.sex !== null && params.sex !== undefined) {
       check(params.sex, Match.Integer);
       if (params.sex !== 1 && params.sex !== 0) {
-        throw("ERROR!");
+        throw new Meteor.Error(400, "ERROR!");
       }
-    }
-    if (params.weight !== null && params.weight !== undefined) {
-      check(params.weight, Match.Integer);
-      if (params.weight < 900) {
-        throw("Error: Enter real weight");
+    } else {throw new Meteor.Error(400, "ERROR!");}
+
+    if (params.weight !== null && params.weight !== undefined && params.weight !== "") {
+      check(params.weight, String);
+      if (parseInt(params.weight,10) > 900) {
+        throw new Meteor.Error(400, "Error: Enter real weight");
       }
-    }
+    } else if (params.weight === "") {params.weight = undefined;}
+
     if (params.locShare !== null && params.locShare !== undefined) {
       check(params.locShare, Boolean);
-    }
+    } else {throw new Meteor.Error(400, "ERROR!");}
+
     params.user=this.userId;
-    Profiles.insert(params);
+
+    if (params.name && params.name.length > 0) {
+      check(params.name, String);
+      return Profiles.insert(params);
+    }
+
+    throw new Meteor.Error(400, "Error: Please enter name");
   },
   updateProfile: function (params,id) {
-    if (params.name) {check(params.name, String);}
-    if (params.number) {
+    if (!(this.userId)) {throw new Meteor.Error(401, "Access Denied!");}
+
+    if (params.number && params.number !== "") {
       check(params.number, String);
-      if (params.number.length!==10) {
-        throw("Error: Enter real mobile number");
+    } else if (params.number === "") {params.number = undefined;}
+
+    if (params.age !== null && params.age !== undefined && params.age !== "") {
+      check(params.age, String);
+      if (parseInt(params.age,10) > 140) {
+        throw new Meteor.Error(400, "Error: Enter real age");
       }
-    }
-    if (params.age) {
-      check(params.age, Match.Integer);
-      if (params.age > 139) {
-        throw("Error: Enter real age");
-      }
-    }
-    if (params.sex !== null) {
+    } else if (params.age === "") {params.age = undefined;}
+
+    if (params.sex !== null && params.sex !== undefined) {
       check(params.sex, Match.Integer);
-      if (!(params.sex===1 || params.sex===0)) {
-        throw("ERROR!");
+      if (params.sex !== 1 && params.sex !== 0) {
+        throw new Meteor.Error(400, "ERROR!");
       }
-    }
-    if (params.weight) {
-      check(params.weight, Match.Integer);
-      if (params.weight > 899) {
-        throw("Error: Enter real weight");
+    } else {throw new Meteor.Error(400, "ERROR!");}
+
+    if (params.weight !== null && params.weight !== undefined && params.weight !== "") {
+      check(params.weight, String);
+      if (parseInt(params.weight,10) > 900) {
+        throw new Meteor.Error(400, "Error: Enter real weight");
       }
-    }
-    if (params.locShare !== null) {check(params.locShare, Boolean);}
+    } else if (params.weight === "") {params.weight = undefined;}
+
+    if (params.locShare !== null && params.locShare !== undefined) {
+      check(params.locShare, Boolean);
+    } else {throw new Meteor.Error(400, "ERROR!");}
+
+    params.user=this.userId;
+
+    if (params.name && params.name.length > 0) {
+      check(params.name, String);
+    } else if (params.name === "") {params.name = undefined;}
 
     Profiles.update(id,{$set:params});
   }
