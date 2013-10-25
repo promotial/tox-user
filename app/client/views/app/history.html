@@ -1,4 +1,6 @@
 <template name="history">
-  <div id="new-call-title"> History </div>
-  <a id="new-call-back"> <span aria-hidden="true" class="new-call-back-txt icon-chevron-left"> </span> </a>
+  <a style="text-decoration:none;" href="{{pathFor 'home'}}"><span id="back-btn">{{multiLang 'BACK'}}</span></a>
+  <div id="newcall-title" class="profiles-title">{{multiLang 'HISTORY' 'UPPER'}}</div>
+  <div id="profiles-list">
+  </div>
 </template>
