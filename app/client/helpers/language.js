@@ -1,7 +1,12 @@
+var defaultLanguage = "de";
+
 var Language = {
   en: {
+    ON:"ON",
+    OFF:"OFF",
     REGISTER:"Register",
     CANCEL:"Cancel",
+    BACK:"Back",
     ENTER_COMMENT:"Enter Comment",
     OLD_PASSWORD:"Old Password",
     NEW_PASSWORD:"New Password",
@@ -56,8 +61,11 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
+    ON:"ON",
+    OFF:"OFF",
     REGISTER:"Register",
     CANCEL:"Cancel",
+    BACK:"Back",
     ENTER_COMMENT:"Kommentar eingeben",
     OLD_PASSWORD:"Altes Passwort",
     NEW_PASSWORD:"Neues Passwort",
@@ -112,8 +120,11 @@ var Language = {
     INITIATE_CALL:"Anrufen"
   },
   fr: {
+    ON:"ON",
+    OFF:"OFF",
     REGISTER:"Register",
     CANCEL:"Cancel",
+    BACK:"Back",
     ENTER_COMMENT:"Saisir Commentaire",
     OLD_PASSWORD:"Ancien mot de passe",
     NEW_PASSWORD:"Nouveau mot de passe",
@@ -170,10 +181,13 @@ var Language = {
 };
 
 multiLang = function(baseString) {
-  if (Session.get("LG")) {
-    return Language[Session.get("LG")][baseString];
+  if (Meteor.user()) {
+    Session.set("language",Meteor.user().profile.language);
+  }
+  if (Session.get("language")) {
+    return Language[Session.get("language")][baseString];
   } else {
-    Session.set("LG","de");
+    Session.set("language",defaultLanguage);
   }
 };
 

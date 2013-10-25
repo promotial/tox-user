@@ -18,27 +18,39 @@ Meteor.methods({
     }
   },
   newProfile: function (params) {
-    if (params.name && params.number && params.age && params.weight ) {
+    if (!(this.userId)) {throw new Meteor.Error(401, "Access Denied!");}
+    if (params.name) {
       check(params.name, String);
-      check(params.number, String);
-      check(params.age, Match.Integer);
-      check(params.sex, Match.Integer);
-      check(params.weight, Match.Integer);
-      check(params.locShare, Boolean);
-      if (params.number.length===10 && params.weight<900 && params.age < 140 && (params.sex===1 || params.sex===0)) {
-        Profiles.insert({
-          user: this.userId,
-          locShare: params.locShare,
-          name: params.name,
-          number: params.number,
-          age: params.age,
-          sex: params.sex,
-          weight: params.weight
-        });
-      }
-    } else {
-      throw new Meteor.Error(400, "Error!");
     }
+    if (params.number) {
+      check(params.number, String);
+      if (params.number.length>8 && params.number.length<16) {
+        throw("Error: Enter real mobile number");
+      }
+    }
+    if (params.age !== null && params.age !== undefined) {
+      check(params.age, Match.Integer);
+      if (params.number.age < 140) {
+        throw("Error: Enter real age");
+      }
+    }
+    if (params.sex !== null && params.sex !== undefined) {
+      check(params.sex, Match.Integer);
+      if (params.sex !== 1 && params.sex !== 0) {
+        throw("ERROR!");
+      }
+    }
+    if (params.weight !== null && params.weight !== undefined) {
+      check(params.weight, Match.Integer);
+      if (params.weight < 900) {
+        throw("Error: Enter real weight");
+      }
+    }
+    if (params.locShare !== null && params.locShare !== undefined) {
+      check(params.locShare, Boolean);
+    }
+    params.user=this.userId;
+    Profiles.insert(params);
   },
   updateProfile: function (params,id) {
     if (params.name) {check(params.name, String);}
@@ -57,13 +69,13 @@ Meteor.methods({
     if (params.sex !== null) {
       check(params.sex, Match.Integer);
       if (!(params.sex===1 || params.sex===0)) {
-        throw("Error: Enter real mobile number");
+        throw("ERROR!");
       }
     }
     if (params.weight) {
       check(params.weight, Match.Integer);
       if (params.weight > 899) {
-        throw("Error: Enter real age");
+        throw("Error: Enter real weight");
       }
     }
     if (params.locShare !== null) {check(params.locShare, Boolean);}

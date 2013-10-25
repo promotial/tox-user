@@ -5,7 +5,7 @@ Meteor.startup(function() {
   Session.set('openProfile', null);
   Deps.autorun(function () {
     if (Meteor.user()) {
-      Session.set("LG",Meteor.user().profile.language);
+      Session.set("language",Meteor.user().profile.language);
     }
   });
 });

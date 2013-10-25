@@ -5,15 +5,16 @@ Accounts.config({
 
 // Validate Email, sending a specific error message on failure.
 Accounts.validateNewUser(function (user) {
-  if (user.emails[0].address) {
-    return true;
+  console.log(user);
+  if (!(user.emails[0].address)) {
+    throw new Meteor.Error(403, "Please enter an email");
   }
-  throw new Meteor.Error(403, "Please enter an email");
+  if (!(user.profile.name)) {
+    throw new Meteor.Error(403, "Please enter a name");
+  }
+  if (!(user.profile.language)) {
+    throw new Meteor.Error(403, "ERROR!");
+  }
+  return true;
 });
 
-Accounts.onCreateUser(function(options, user) {
-  if (options.profile.name && options.profile.language) {
-    return user;
-  }
-  throw new Meteor.Error(403, "ERROR!");
-});

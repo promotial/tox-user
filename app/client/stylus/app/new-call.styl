@@ -1,98 +1,141 @@
-#new-call-title
-  background grey
-  width 100%
-  height 36px
+//new call title
+#newcall-title
+  font-size 26px
+  line-height 56px
   text-align center
-  font-size 22px
-  line-height 34px
-  border-bottom 2px solid black
-  box-sizing border-box
-#call-profile-select
-  width 96%
-  height 9%
-  margin-left 2%
-  margin-right 2%
-  margin-top 3%
-  font-size 16px
-  padding-top 4px
-  padding-left 2px
-.call-input-box
-  margin-top 5%
-  height 6%
-  width 70%
-  margin-left 2%
-  line-height 28.3px
-.call-input-title
-  margin-left 3%
-.call-input-weight
-  margin-left 1.5%
-  margin-bottom 6%
-  width 26%
-.call-input-age
-  width 26%
-  margin-left 0.4%
-  margin-bottom 6%
-#call-name-input
-  margin-left 4.3%
-#loc-toggle
-  width 112px
-  margin-top 5px
-  margin-left 12px
-  font-size 14px
-#loc-switch-title
-  font-size 16px
-  margin-left 28px
-#gender-toggle
-  width 120px
-  margin-top 5px
-  margin-right 12px
-  font-size 14px
-#gender-switch-title
-  font-size 16px
-  margin-left 28px
-#attach-photos-btn
-  width 92%
-  height 8%
-  position absolute
-  bottom 14%
-  text-align center
-  background white
-  border 2px solid black
-  border-radius 15px
-  left 3.5%
-  display table
-  box-sizing border-box
-  &:hover
-    background white-hover
-#new-call-start
-  background light-green
-  width 100%
-  position absolute
-  bottom 0px
-  height 10%
-  text-align center
-  font-size 24px
-  display table
-  border-top 2px solid black
-  box-sizing border-box
-  &:hover
-    background lg-hover
-#new-call-back
-  position absolute
-  font-size 24px
-  left 10px
-  width 30px
-  height 34px
-  text-align center
-  display table
-  border-right 2px solid black
-  border-left 2px solid black
-  text-decoration none
-  top 0px
-  &:hover
-    background grey-hover
-    text-decoration none
-.new-call-back-txt
-  display table-cell
-  vertical-align middle
+  color white
+  font-family "Arial"
+  font-weight 100
 
+//back button
+#back-btn
+  left 10px
+  top 6px
+  width 20%
+  height 38px
+  text-align center
+  line-height 50px
+  font-size 0.95em
+  @media (min-width:300px)
+    font-size 1.1em
+  @media (min-width:400px)
+    font-size 1.3em
+  border none
+  border-radius 2px
+  color white
+  font-family "track"
+  z-index 100
+  border-bottom 7px solid #B31011
+  position absolute
+  background-color #ED3533
+  &:hover
+    border-bottom 7px solid #8e1011
+    background-color #c83534
+/* NEW CALL FORMS */
+
+//new call forms container
+#newcall-forms
+  position absolute
+  height auto
+  width 100%
+  top 55px
+  bottom 60px
+  background-color white
+//call profile select
+#call-profile-select
+  color #ED3533
+  border-radius 0
+  border solid #d2d4d7 1px
+  width 90%
+  height 8%
+  font-size 19px
+  position absolute
+  left 5%
+  top 4%
+//call input class
+.call-input
+  color #ED3533
+  border-radius 0
+  border solid #d2d4d7 1px
+  font-size 19px
+  position absolute
+//age input form
+#age-input
+  left 5%
+  top 17%
+  width 40%
+  height 8%
+//weight input form
+#weight-input
+  right 5%
+  top 17%
+  width 40%
+  height 8%
+//mobile input form
+#mobile-input
+  left 5%
+  top 34%
+  width 40%
+  height 8%
+  height 8%
+//locoation switch title
+#loc-input-title
+  left 5%
+  top 50%
+  width 60%
+  height 8%
+  border none
+  background none
+//select switch text
+.select-switch-text
+  font-family "Arial"
+  font-size 18px
+  font-weight 100
+//gender select switch
+#gender-select
+  right 5%
+  position absolute
+  top 34%
+  height 8.5%
+  border-radius 0
+  width 40%
+  box-sizing border-box
+  min-width 120px
+//location select switch
+#location-select
+  right 5%
+  position absolute
+  top 50%
+  height 8.5%
+  border-radius 0
+  width 40%
+  box-sizing border-box
+  min-width 120px
+//attach photos box
+#attach-photos
+  background-color #ED3533
+  height auto
+  width 90%
+  left 5%
+  position absolute
+  bottom 6%
+  top 64%
+  border-radius 6px
+//individual photo thumbnails
+.attach-photo
+  position absolute
+  width 31%
+  height auto
+  z-index 200
+  margin auto
+  position absolute
+  top 0
+  left 5%
+  bottom 0
+#attach-photo-1
+  left 2%
+#attach-photo-2
+  left 35%
+#attach-photo-3
+  left 68%
+/* --NEW CALL FORMS */

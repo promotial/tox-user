@@ -14,7 +14,7 @@ Template.topNav.events({
   },
   'click .lang-dropdown-flag': function(e) {
     Meteor.users.update(Meteor.userId(),{$set:{profile:{language:e.currentTarget.id}}});
-    Session.set("LG",e.currentTarget.id);
+    Session.set("language",e.currentTarget.id);
   }
 });
 

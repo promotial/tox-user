@@ -15,16 +15,16 @@ Template.login.events({
         Session.set('error',"Fill in all values");
         return false;
       }
-      var name = t.find('#register-name').value;
+      var uname = t.find('#register-name').value;
       if (password !== t.find('#register-cpass').value) {
         return Session.set('error',"Passwords do not match");
         return false;
       }
-      if (name==="") {
+      if (uname==="") {
         return Session.set('error',"Please enter a name");
         return false;
       }
-      Accounts.createUser({email:email,password:password,profile:{name:name,language:"de"}}, function(err) {
+      Accounts.createUser({email:email,password:password,profile:{name:uname,language:"de"}}, function(err) {
         if (err) {
           if (err.reason === "Match failed") {
             err.reason = "Fill in all values";

@@ -23,6 +23,7 @@ Router.configure({
 
       // stop the rest of the before hooks and the action function
       this.stop();
+
     } else {
       Session.set("error",null);
       Session.set("lang",false);
@@ -56,7 +57,11 @@ Router.map(function () {
     yieldTemplates: { 'newCall': {to: "appView"} },
     before: function() {
       Meteor.subscribe('profiles', function() {
-        Session.set('usedProfile',Profiles.findOne({})._id);
+        if (Profiles.find().count()===0) {
+          Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
+            Session.set('usedProfile',Profiles.findOne({})._id);
+          })
+        } else {Session.set('usedProfile',Profiles.findOne({})._id);};
       });
     }
   });
