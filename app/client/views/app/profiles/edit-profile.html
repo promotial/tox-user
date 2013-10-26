@@ -7,10 +7,10 @@
     {{#with profile}}
     <input class="call-input" value="{{name}}" placeholder="&nbsp;{{multiLang 'NAME'}}" type="text"
            id="name-input-profile" required>
-    <input class="call-input" value="{{age}}" placeholder="&nbsp;{{multiLang 'AGE'}}" type="number" id="age-input-profile">
-    <input class="call-input" value="{{weight}}" placeholder="&nbsp;{{multiLang 'WEIGHT'}}" type="number"
+    <input class="call-input" {{#if age}} value="{{age}}" {{/if}} placeholder="&nbsp;{{multiLang 'AGE'}}" type="number" id="age-input-profile">
+    <input class="call-input" {{#if weight}} value="{{weight}}" {{/if}} placeholder="&nbsp;{{multiLang 'WEIGHT'}}" type="number"
            id="weight-input-profile">
-    <input class="call-input" value="{{number}}" placeholder="&nbsp;{{multiLang 'MOBILE'}}" type="number"
+    <input class="call-input" {{#if number}} value="{{number}}" {{/if}} placeholder="&nbsp;{{multiLang 'MOBILE'}}" type="number"
            id="mobile-input-profile">
     <label id="gender-select-profile" class="switch-light switch-candy" onclick="">
       <input id="sexselect" type="checkbox" {{#if female}}checked{{/if}}>

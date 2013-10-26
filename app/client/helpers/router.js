@@ -46,14 +46,15 @@ Router.map(function () {
   this.route("profiles", {
     template: "app",
     yieldTemplates: { 'profiles': {to: "appView"} },
-    waitOn: function () {
-      return Meteor.subscribe('profiles', function() {
-        if (Profiles.find().count()===0) {
-          Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
-            Session.set('usedProfile',Profiles.findOne({})._id);
-          })
-        } else {Session.set('usedProfile',Profiles.findOne({})._id);};
-      });
+    before: function() {
+      if (Profiles.find().count()===0) {
+        Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
+          Session.set('usedProfile',Profiles.findOne({})._id);
+        })
+      } else {Session.set('usedProfile',Profiles.findOne({})._id);};
+    },
+    waitOn: function() {
+      return Meteor.subscribe('profiles');
     }
   });
 
@@ -62,13 +63,14 @@ Router.map(function () {
     template: "app",
     yieldTemplates: { 'newCall': {to: "appView"} },
     before: function() {
-      Meteor.subscribe('profiles', function() {
-        if (Profiles.find().count()===0) {
-          Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
-            Session.set('usedProfile',Profiles.findOne({})._id);
-          })
-        } else {Session.set('usedProfile',Profiles.findOne({})._id);};
-      });
+      if (Profiles.find().count()===0) {
+        Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
+          Session.set('usedProfile',Profiles.findOne({})._id);
+        })
+      } else {Session.set('usedProfile',Profiles.findOne({})._id);};
+    },
+    waitOn: function() {
+      return Meteor.subscribe('profiles');
     }
   });
 

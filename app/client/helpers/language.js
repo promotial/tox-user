@@ -116,7 +116,7 @@ var Language = {
     NEW_PROFILE:"Neues Profil",
     GENDER:"Geschlecht",
     DELETE:"Löschen",
-    SAVE:"Speichern",
+    SAVE:"Save",
     INITIATE_CALL:"Anrufen"
   },
   fr: {
@@ -175,7 +175,7 @@ var Language = {
     NEW_PROFILE:"Nouveau Profil",
     GENDER:"Sex",
     DELETE:"Supprimer",
-    SAVE:"Sauvegarder",
+    SAVE:"Save",
     INITIATE_CALL:"Appeler"
   }
 };

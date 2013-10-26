@@ -36,7 +36,7 @@ Meteor.methods({
       if (params.sex !== 1 && params.sex !== 0) {
         throw new Meteor.Error(400, "ERROR!");
       }
-    } else {throw new Meteor.Error(400, "ERROR!");}
+    };
 
     if (params.weight !== null && params.weight !== undefined && params.weight !== "") {
       check(params.weight, String);
@@ -47,7 +47,7 @@ Meteor.methods({
 
     if (params.locShare !== null && params.locShare !== undefined) {
       check(params.locShare, Boolean);
-    } else {throw new Meteor.Error(400, "ERROR!");}
+    };
 
     params.user=this.userId;
 
