@@ -25,6 +25,9 @@ Template.newCall.events({
       }
     });
   },
+  'click .attach-photo': function (e) {
+    capturePhoto(e.currentTarget.id);
+  },
   "change #call-profile-select": function(event) {
     Session.set('usedProfile',Profiles.findOne({_id: event.currentTarget.value})._id);
   }
