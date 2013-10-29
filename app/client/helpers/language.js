@@ -61,13 +61,13 @@ var Language = {
     INITIATE_CALL:"Initiate Call"
   },
   de: {
-    EDIT_PROFILE:"Edit Profile",
-    ADD:"Add",
+    EDIT_PROFILE:"Profil Editieren",
+    ADD:"Erst",
     YES:"Ja",
     NO:"Nein",
-    REGISTER:"Register",
-    CANCEL:"Cancel",
-    BACK:"Back",
+    REGISTER:"Anmelden",
+    CANCEL:"storno",
+    BACK:"Zurück",
     ENTER_COMMENT:"Kommentar eingeben",
     OLD_PASSWORD:"Altes Passwort",
     NEW_PASSWORD:"Neues Passwort",
@@ -116,17 +116,17 @@ var Language = {
     NEW_PROFILE:"Neues Profil",
     GENDER:"Geschlecht",
     DELETE:"Löschen",
-    SAVE:"Save",
+    SAVE:"Verw.",
     INITIATE_CALL:"Anrufen"
   },
   fr: {
-    EDIT_PROFILE:"Edit Profile",
-    ADD:"Add",
+    EDIT_PROFILE:"Editer Profile",
+    ADD:"Ajout",
     YES:"Oui",
     NO:"Non",
-    REGISTER:"Register",
-    CANCEL:"Cancel",
-    BACK:"Back",
+    REGISTER:"Inscrire",
+    CANCEL:"Annuler",
+    BACK:"Retour",
     ENTER_COMMENT:"Saisir Commentaire",
     OLD_PASSWORD:"Ancien mot de passe",
     NEW_PASSWORD:"Nouveau mot de passe",
@@ -175,7 +175,7 @@ var Language = {
     NEW_PROFILE:"Nouveau Profil",
     GENDER:"Sex",
     DELETE:"Supprimer",
-    SAVE:"Save",
+    SAVE:"Util.",
     INITIATE_CALL:"Appeler"
   }
 };
