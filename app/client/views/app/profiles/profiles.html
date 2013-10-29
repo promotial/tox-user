@@ -12,7 +12,7 @@
 <template name="profileItem">
   <div class="profile-item">
     <span class="profile-name"> {{name}} </span>
-    <a href="{{pathFor 'editProfile'}}" style="color:black;"> <span aria-hidden="true" class="icon-edit profile-edit"> </span> </a>
+    <a style="text-decoration:none;" href="{{pathFor 'editProfile'}}" style="color:black;"> <span aria-hidden="true" class="icon-edit profile-edit"> </span> </a>
     <span id="{{_id}}" aria-hidden="true" class="icon-trash profile-delete"> </span>
   </div>
 </template>

@@ -12,17 +12,18 @@ Template.login.events({
       var password = t.find('#login-pass-register').value;
 
       if (password==="" || email==="") {
-        Session.set('error',"Fill in all values");
+        alert("Fill in all values");
+        Session.set("Fill in all values");
         return false;
       }
       var uname = t.find('#register-name').value;
       if (password !== t.find('#register-cpass').value) {
+        alert("Passwords do not match");
         return Session.set('error',"Passwords do not match");
-        return false;
       }
       if (uname==="") {
+        alert("Please enter a name");
         return Session.set('error',"Please enter a name");
-        return false;
       }
       Accounts.createUser({email:email,password:password,profile:{name:uname,language:"de"}}, function(err) {
         if (err) {
@@ -30,6 +31,7 @@ Template.login.events({
             err.reason = "Fill in all values";
           }
           Session.set('error',err.reason);
+          alert(err.reason);
         } else {
           server.subscribe('calls');
           Meteor.subscribe('profiles');
@@ -46,6 +48,7 @@ Template.login.events({
             err.reason = "Fill in all values";
           }
           Session.set('error',err.reason);
+          alert(err.reason);
         } else {
           server.subscribe('calls');
           Meteor.subscribe('profiles');

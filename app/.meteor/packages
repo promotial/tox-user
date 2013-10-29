@@ -19,9 +19,9 @@ ejson
 accounts-base
 accounts-password
 appcache
-force-ssl
 preserve-inputs
 stylus
 iron-router
 underscore
 check
+cordova
