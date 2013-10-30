@@ -130,7 +130,7 @@ var Language = {
     ENTER_COMMENT:"Saisir Commentaire",
     OLD_PASSWORD:"Ancien mot de passe",
     NEW_PASSWORD:"Nouveau mot de passe",
-    CONFIRM_PASSWORD:"Confirmer mot de passe",
+    CONFIRM_PASSWORD:"Confirmer",
     TRIAGE_TAGS:"Tags de triage",
     SETTINGS:"Reglages",
     LANGUAGE:"Langues",
