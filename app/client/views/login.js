@@ -1,10 +1,10 @@
 Template.login.events({
   'click #login-btn': function (e, t) {
-    e.preventDefault();
-
     var trimInput = function(val) {
       return val.replace(/^\s*|\s*$/g, "");
     };
+
+    Session.set("loading",true);
 
     if (Session.get('register')) {
       // retrieve the input field values
@@ -12,25 +12,27 @@ Template.login.events({
       var password = t.find('#login-pass-register').value;
 
       if (password==="" || email==="") {
+        Session.set("loading",false);
         alert("Fill in all values");
-        Session.set("Fill in all values");
         return false;
       }
       var uname = t.find('#register-name').value;
       if (password !== t.find('#register-cpass').value) {
+        Session.set("loading",false);
         alert("Passwords do not match");
-        return Session.set('error',"Passwords do not match");
+        return false;
       }
       if (uname==="") {
+        Session.set("loading",false);
         alert("Please enter a name");
-        return Session.set('error',"Please enter a name");
+        return false;
       }
       Accounts.createUser({email:email,password:password,profile:{name:uname,language:"de"}}, function(err) {
         if (err) {
           if (err.reason === "Match failed") {
             err.reason = "Fill in all values";
           }
-          Session.set('error',err.reason);
+          Session.set("loading",false);
           alert(err.reason);
         } else {
           server.subscribe('calls');
@@ -47,7 +49,7 @@ Template.login.events({
           if (err.reason === "Match failed") {
             err.reason = "Fill in all values";
           }
-          Session.set('error',err.reason);
+          Session.set("loading",false);
           alert(err.reason);
         } else {
           server.subscribe('calls');
@@ -55,15 +57,14 @@ Template.login.events({
         }
       });
     }
+    Meteor.setTimeout(function() {Session.set("loading",false);},4000);
     return false;
   },
   'click #register-btn': function (e) {
     if (Session.get('register')) {
       Session.set('register',false);
-      Session.set('error',null);
     } else {
       Session.set('register',true);
-      Session.set('error',null);
     }
   }
 });
@@ -71,9 +72,6 @@ Template.login.events({
 Template.login.helpers({
   register: function() {
     return Session.get('register');
-  },
-  error: function() {
-    return Session.get('error');
   }
 });
 

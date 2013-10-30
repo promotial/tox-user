@@ -25,8 +25,8 @@ Router.configure({
       this.stop();
 
     } else {
-      Session.set("error",null);
       Session.set("lang",false);
+      Session.set("loading",false);
     }
   },
 
