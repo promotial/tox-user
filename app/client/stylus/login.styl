@@ -55,42 +55,46 @@
 .login-form
   width 70%
   height 15%
-  font-size 0.5em
+  font-size 0.45em
   position absolute
   @media (min-height:200px)
-    font-size 0.6em
+    font-size 0.55em
   @media (min-height:300px)
-    font-size 0.8em
+    font-size 0.75em
   @media (min-height:400px)
-    font-size 1em
+    font-size 0.95em
   @media (min-height:500px)
-    font-size 1.2em
+    font-size 1.15em
   @media (min-height:600px)
-    font-size 1.4em
-  box-sizing border-box
+    font-size 1.35em
   border-top-right-radius 3px
   border-bottom-right-radius 3px
   border solid #d2d4d7 1px
   border-left none
   padding 0.4em
+  box-sizing border-box;
   color black
   background-color white
 .login-form-side
   width 14%
   height 15%
   text-align center
-  display table
   position absolute
+  box-sizing border-box;
   border-top-left-radius 3px
   border-bottom-left-radius 3px
   border solid #d2d4d7 1px
-  box-sizing border-box
   background #EDEDE5
 .login-form-side-text
   color #ED3533
   font-size 0.6em
   padding-top 10%
-  display table-cell
+  position absolute
+  left 0
+  right 0
+  top 0
+  bottom 0
+  margin auto
   vertical-align middle
   @media (min-height:200px)
     font-size 0.9em
@@ -113,6 +117,12 @@
   height 12%
   right 8%
   top 33%
+  &:focus + #login-username-side-register
+    top 16%
+    z-index 100
+  &:focus
+    top 16%
+    z-index 100
 #login-username-side-register
   height 12%
   left 8%
@@ -128,6 +138,12 @@
   height 12%
   top 50%
   right 8%
+  &:focus + #login-pass-side-register
+    top 16%
+    z-index 100
+  &:focus
+    top 16%
+    z-index 100
 #login-pass-side-register
   height 12%
   left 8%
@@ -137,6 +153,12 @@
   height 12%
   top 67%
   right 8%
+  &:focus + #register-cpass-side
+    top 16%
+    z-index 100
+  &:focus
+    top 16%
+    z-index 100
 #register-cpass-side
   height 12%
   left 8%
