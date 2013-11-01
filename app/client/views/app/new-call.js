@@ -1,35 +1,41 @@
 Template.newCall.events({
-  'click #new-call-start': function (e, t) {
-    e.preventDefault();
+  'click #init-call-btn': function (e, t) {
+    Session.set("loading",true);
 
-    var trimInput = function (val) {
-      return val.replace(/^\s*|\s*$/g, "");
-    };
-
-    // retrieve the input field values
     var params = {};
-    params.name = trimInput(t.find('#call-name-input').value);
-    params.number = ''+t.find('#call-mobile-input').value;
-    params.weight = +t.find('#call-weight-input').value;
-    params.age = +t.find('#call-age-input').value;
-    if (t.find('#loc-toggle-checkbox').checked) {
-      params.loc={lat:124,lon:325};
-    }
-    if (t.find('#sex-toggle-checkbox').checked) {
-      params.sex=1;
-    } else {params.sex=0;}
-    Meteor.call('newCall',params, function(error) {
-      if (error) {
-        console.log(error.reason);
-        /* alert with error message */
+    params.name = t.find('#call-profile-select').value;
+    params.age = t.find('#age-input').value;
+    params.number = t.find('#mobile-input').value;
+    params.weight = t.find('#weight-input').value;
+    params.sex = t.find('#gender-input').checked;
+    params.locShare = !(t.find('#loc-share-input').checked);
+
+    if (params.sex) {
+      params.sex = 1;
+    } else {params.sex = 0}
+
+    params.loc = false;
+
+    Meteor.call('newCall',params,function(error) {
+      if (error.reason) {
+        alert(error.reason);
+      } else {
+        window.href = "tel:+41-44-251-51-51";
       }
+      Meteor.clearTimeout(timeout);
+      Session.set("loading",false);
     });
+
+    var timeout = Meteor.setTimeout(function() {
+      alert("Request Timed Out" );
+      Session.set("loading",false);
+    },15000);
   },
   'click .attach-photo': function (e) {
     capturePhoto(e.currentTarget.id);
   },
-  "change #call-profile-select": function(event) {
-    Session.set('usedProfile',Profiles.findOne({_id: event.currentTarget.value})._id);
+  "change #call-profile-select": function(e) {
+    Session.set('usedProfile',Profiles.findOne({_id: e.currentTarget.children[e.currentTarget.selectedIndex].id})._id);
   }
 });
 
