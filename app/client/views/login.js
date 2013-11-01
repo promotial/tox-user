@@ -33,9 +33,8 @@ Template.login.events({
             err.reason = "Fill in all values";
           }
           Session.set("loading",false);
-          alert(err.reason);
+          alert( (err.reason != null) ? err.reason:"Unknown Error" )
         } else {
-          server.subscribe('calls');
           Meteor.subscribe('profiles');
         }
       });
@@ -50,9 +49,8 @@ Template.login.events({
             err.reason = "Fill in all values";
           }
           Session.set("loading",false);
-          alert(err.reason);
+          alert( (err.reason != null) ? err.reason:"Unknown Error" )
         } else {
-          server.subscribe('calls');
           Meteor.subscribe('profiles');
         }
       });
