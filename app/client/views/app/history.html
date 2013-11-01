@@ -1,6 +1,38 @@
 <template name="history">
   <a style="text-decoration:none;" href="{{pathFor 'home'}}"><span id="back-btn">{{multiLang 'BACK'}}</span></a>
-  <div id="newcall-title" class="profiles-title">{{multiLang 'HISTORY' 'UPPER'}}</div>
+  <div id="newcall-title">{{multiLang 'HISTORY' 'UPPER'}}</div>
   <div id="profiles-list">
+    {{#each calls}}
+      {{> callItem}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="callItem">
+  <a style="text-decoration:none;" href="{{pathFor 'viewCall'}}"><div class="profile-item">
+    <span class="profile-name">{{callTime date}} - {{getInitials name}}  </span>
+    <span style="font-weight:100;font-size:25px;color:#ED3533;" aria-hidden="true" class="icon-chevron-right profile-edit"> </span>
+  </div></a>
+</template>
+
+<template name="viewCall">
+  <a style="text-decoration:none;" href="{{pathFor 'history'}}"><span id="back-btn">{{multiLang 'BACK'}}</span></a>
+  <div id="newcall-title">{{multiLang 'COMMENTS' 'UPPER'}}</div>
+  <div id="profiles-list">
+    {{#if comments}}
+      {{#each comments}}
+        {{> commentItem}}
+      {{/each}}
+    {{else}}
+      <div style="text-align:center;" class="history-item">
+        No Comments
+      </div>
+    {{/if}}
+  </div>
+</template>
+
+<template name="commentItem">
+  <div class="history-item">
+    {{calendarTime date}}: {{message}}
   </div>
 </template>

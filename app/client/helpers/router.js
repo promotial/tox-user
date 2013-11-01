@@ -100,6 +100,26 @@ Router.map(function () {
     waitOn: function () {return Meteor.subscribe('profiles') }
   });
 
+  this.route('viewCall', {
+    path: '/history/:_id',
+    before: function() {
+      //redirect users back to home "/" if profile doesn't exist
+      if ( !Calls.findOne({_id: this.params._id}) ) {
+        this.redirect("/history");
+        this.stop();
+      }
+    },
+    action: function () {
+      //data property can't yet change context of child yields so using session
+      Session.set("openCall",this.params._id);
+
+      //renders editProfile into appView
+      this.render("app");
+      this.render('viewCall', { to: "appView" });
+    },
+    waitOn: function () {return server.subscribe('calls',Meteor.userId());}
+  });
+
   //renders profiles into appView on '/profiles'
   this.route("addProfile", {
     path: "/profiles/add",
