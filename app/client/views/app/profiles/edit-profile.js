@@ -1,4 +1,9 @@
 Template.editProfile.helpers({
+  check: function(value) {
+    if (value !== null && value !== "" && value !== undefined) {
+      return true;
+    } else {return false;}
+  },
   profile: function() {
     return Profiles.findOne({_id:Session.get("openProfile")});
   },

@@ -20,7 +20,7 @@ Template.newCall.events({
       if (error.reason) {
         alert(error.reason);
       } else {
-        window.href = "tel:+41-44-251-51-51";
+        window.location.href = "tel:+41-44-251-51-51";
       }
       Meteor.clearTimeout(timeout);
       Session.set("loading",false);
