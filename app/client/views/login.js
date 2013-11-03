@@ -66,9 +66,14 @@ Template.login.events({
     }
   },
   'click .sign-in-btn': function(e) {
+    Session.set("loading",true);
+
     var loginError = function(err) {
       if (err) {
-        alert(err.reason || 'Unknown error');
+        Session.set("loading",false);
+        alert( (err.reason != null) ? err.reason:"Unknown Error" )
+      } else {
+        Meteor.subscribe('profiles');
       }
     };
 
@@ -82,6 +87,9 @@ Template.login.events({
     if (e.currentTarget.id === "google-sign-in") {
       Meteor.loginWithGoogle(loginError);
     }
+
+    Meteor.setTimeout(function() {Session.set("loading",false);},4000);
+    return false;
   }
 });
 

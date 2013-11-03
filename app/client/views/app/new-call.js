@@ -14,17 +14,26 @@ Template.newCall.events({
       params.sex = 1;
     } else {params.sex = 0}
 
-    params.loc = false;
+    var newCall = function () {
+      Meteor.call('newCall',params,function(error) {
+        if (error.reason) {
+          alert(error.reason);
+        } else {
+          window.location.href = "tel:+41-44-251-51-51";
+        }
+        Meteor.clearTimeout(timeout);
+        Session.set("loading",false);
+      });
+    };
 
-    Meteor.call('newCall',params,function(error) {
-      if (error.reason) {
-        alert(error.reason);
-      } else {
-        window.location.href = "tel:+41-44-251-51-51";
-      }
-      Meteor.clearTimeout(timeout);
-      Session.set("loading",false);
-    });
+    var getPosition = function(position) {
+      params.loc = {lon:position.coords.longitude,lat:position.coords.latitude};
+      newCall()
+    };
+
+    if (params.locShare) {
+      navigator.geolocation.getCurrentPosition(getPosition);
+    } else {params.loc=false; newCall();}
 
     var timeout = Meteor.setTimeout(function() {
       alert("Request Timed Out" );
