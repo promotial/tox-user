@@ -3,17 +3,39 @@ Accounts.config({
   sendVerificationEmail: false
 });
 
-// Validate Email, sending a specific error message on failure.
-Accounts.validateNewUser(function (user) {
-  if (!(user.emails[0].address)) {
-    throw new Meteor.Error(403, "Please enter an email");
+Accounts.onCreateUser(function(options, user) {
+  if (!(options.profile.language)) {
+    options.profile.language = "de";
   }
-  if (!(user.profile.name)) {
-    throw new Meteor.Error(403, "Please enter a name");
-  }
-  if (!(user.profile.language)) {
-    throw new Meteor.Error(403, "ERROR!");
-  }
-  return true;
+  user.profile = options.profile;
+  return user;
 });
+
+Accounts.loginServiceConfiguration.remove({
+  service: "facebook"
+});
+Accounts.loginServiceConfiguration.insert({
+  service: "facebook",
+  appId: "454019284709457",
+  secret: "3fc81d45d6368de6d6ba8806b9ea49de"
+});
+
+Accounts.loginServiceConfiguration.remove({
+  service: "twitter"
+});
+Accounts.loginServiceConfiguration.insert({
+  service: "twitter",
+  consumerKey: "e8L3SweotYqupGV8VYbUyg",
+  secret: "pj5GtkUJRfHlUNCmv0YroOf5kEoO8TiZko6UK9SZQ"
+});
+
+Accounts.loginServiceConfiguration.remove({
+  service: "google"
+});
+Accounts.loginServiceConfiguration.insert({
+  service: "google",
+  clientId: "491863669516.apps.googleusercontent.com",
+  secret: "K05IgARKLokE6GFedl0HU3XV"
+});
+
 

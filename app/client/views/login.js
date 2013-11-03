@@ -64,6 +64,24 @@ Template.login.events({
     } else {
       Session.set('register',true);
     }
+  },
+  'click .sign-in-btn': function(e) {
+    var loginError = function(err) {
+      if (err) {
+        alert(err.reason || 'Unknown error');
+      }
+    };
+
+    if (e.currentTarget.id === "facebook-sign-in") {
+      Meteor.loginWithFacebook(loginError);
+    }
+
+    if (e.currentTarget.id === "twitter-sign-in") {
+      Meteor.loginWithTwitter(loginError);
+    }
+    if (e.currentTarget.id === "google-sign-in") {
+      Meteor.loginWithGoogle(loginError);
+    }
   }
 });
 

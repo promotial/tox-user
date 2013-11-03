@@ -18,6 +18,9 @@ ejson
 #For App
 accounts-base
 accounts-password
+accounts-google
+accounts-twitter
+accounts-facebook
 appcache
 preserve-inputs
 stylus
