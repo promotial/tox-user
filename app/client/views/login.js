@@ -58,7 +58,7 @@ Template.login.events({
     Meteor.setTimeout(function() {Session.set("loading",false);},4000);
     return false;
   },
-  'click #register-btn': function (e) {
+  'click .submit-btn': function (e) {
     if (Session.get('register')) {
       Session.set('register',false);
     } else {

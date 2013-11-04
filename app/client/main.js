@@ -9,6 +9,10 @@ Meteor.startup(function() {
     if (Meteor.user()) {
       Session.set("language",Meteor.user().profile.language);
       server.subscribe('calls',Meteor.userId());
+      GroundDB(Calls);
+      GroundDB.skipMethods({
+        'newCall': true
+      });
     }
   });
 });

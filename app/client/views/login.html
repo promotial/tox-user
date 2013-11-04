@@ -28,7 +28,11 @@
         </div>
       {{/if}}
       <input type="submit" class="login-btn {{#if register}} login-btn-register {{/if}}" id="login-btn" value="{{multiLang 'LOGIN'}}">
-      <input type="submit" class="login-btn {{#if register}} login-btn-register {{/if}}" id="register-btn" value="{{#if register}} {{multiLang 'CANCEL'}} {{else}} {{multiLang 'REGISTER'}} {{/if}}">
+      {{#if register}}
+      <input type="submit" class="login-btn login-btn-register submit-btn" id="register-btn" value="{{multiLang 'CANCEL'}}">
+      {{else}}
+      <input type="submit" class="login-btn submit-btn" id="cancel-btn" value="{{multiLang 'REGISTER'}}">
+      {{/if}}
       <div class="forms-border-bottom {{#if register}}border-register{{/if}}"></div>
     </div>
     </div>

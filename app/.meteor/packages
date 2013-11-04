@@ -28,3 +28,5 @@ iron-router
 underscore
 check
 cordova
+ejson-minimax
+grounddb

@@ -46,15 +46,14 @@ Router.map(function () {
   this.route("profiles", {
     template: "app",
     yieldTemplates: { 'profiles': {to: "appView"} },
-    before: function() {
-      if (Profiles.find().count()===0) {
-        Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
-          Session.set('usedProfile',Profiles.findOne({})._id);
-        })
-      } else {Session.set('usedProfile',Profiles.findOne({})._id);};
-    },
     waitOn: function() {
-      return Meteor.subscribe('profiles');
+      return Meteor.subscribe('profiles', function() {
+        if (Profiles.find({}).count()===0) {
+          Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
+            Session.set('usedProfile',Profiles.findOne({})._id);
+          })
+        } else {Session.set('usedProfile',Profiles.findOne({})._id);};
+      });
     }
   });
 
@@ -62,22 +61,22 @@ Router.map(function () {
   this.route("newCall", {
     template: "app",
     yieldTemplates: { 'newCall': {to: "appView"} },
-    before: function() {
-      if (Profiles.find().count()===0) {
-        Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
-          Session.set('usedProfile',Profiles.findOne({})._id);
-        })
-      } else {Session.set('usedProfile',Profiles.findOne({})._id);};
-    },
     waitOn: function() {
-      return Meteor.subscribe('profiles');
+      return Meteor.subscribe('profiles', function() {
+        if (Profiles.find({}).count()===0) {
+          Meteor.call('newProfile',{name:Meteor.user().profile.name}, function() {
+            Session.set('usedProfile',Profiles.findOne({})._id);
+          })
+        } else {Session.set('usedProfile',Profiles.findOne({})._id);};
+      });
     }
   });
 
   //renders history into appView on '/history'
   this.route("history", {
     template: "app",
-    yieldTemplates: { 'history': {to: "appView"} }
+    yieldTemplates: { 'history': {to: "appView"} },
+    waitOn: function() {return server.subscribe('calls',Meteor.userId());}
   });
 
   this.route('editProfile', {

@@ -6,7 +6,7 @@ Meteor.methods({
       check(params.number, String);
     } else {params.number=false}
 
-    if (params.age !== null && params.age !== undefined && params.age !== "") {
+    if (params.age && params.age !== "") {
       check(params.age, String);
       if (parseInt(params.age,10) > 140) {
         throw new Meteor.Error(400, "Enter real age");
@@ -20,7 +20,7 @@ Meteor.methods({
       }
     } else {throw new Meteor.Error(400, "ERROR!");}
 
-    if (params.weight !== null && params.weight !== undefined && params.weight !== "") {
+    if (params.weight && params.weight !== "") {
       check(params.weight, String);
       if (parseInt(params.weight,10) > 900) {
         throw new Meteor.Error(400, "Enter real weight");
