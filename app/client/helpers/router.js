@@ -68,6 +68,16 @@ Router.map(function () {
   this.route("newCall", {
     template: "app",
     yieldTemplates: { 'newCall': {to: "appView"} },
+    before: function() {
+      if (window.onLine !== true) {
+        this.stop();
+        this.redirect("/");
+        var choice = confirm("No Internet Connection - Would you like to start a new call without sending any data?");
+        if (choice === true) {
+          window.location.href = "tel:+41-44-251-51-51";
+        }
+      }
+    },
     waitOn: function() {
       return Meteor.subscribe('profiles', function() {
         if (Profiles.find({}).count()===0) {

@@ -16,9 +16,15 @@ Meteor.startup(function() {
     }
   });
   window.offLineHandler = function() {
-    if (window.location.pathname.slice(0,9)==='/profiles') {
-      alert("You Need an Internet Connection to Add or Edit Profiles");
+    if (window.location.pathname.toLowerCase().slice(0,9)==='/profiles') {
       Router.go("/");
+      alert("You Need an Internet Connection to Add or Edit Profiles");
+    } else if (window.location.pathname.toLowerCase().slice(0,8)==='/newcall') {
+      Router.go("/");
+      var choice = confirm("No Internet Connection - Would you like to start a new call without sending any data?");
+      if (choice === true) {
+        window.location.href = "tel:+41-44-251-51-51";
+      }
     }
   };
 });
