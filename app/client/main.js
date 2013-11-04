@@ -15,4 +15,10 @@ Meteor.startup(function() {
       });
     }
   });
+  window.offLineHandler = function() {
+    if (window.location.pathname.slice(0,9)==='/profiles') {
+      alert("You Need an Internet Connection to Add or Edit Profiles");
+      Router.go("/");
+    }
+  };
 });

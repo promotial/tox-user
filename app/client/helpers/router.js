@@ -46,6 +46,13 @@ Router.map(function () {
   this.route("profiles", {
     template: "app",
     yieldTemplates: { 'profiles': {to: "appView"} },
+    before: function() {
+      if (window.onLine !== true) {
+        alert("You Need an Internet Connection to Add or Edit Profiles");
+        this.stop();
+        this.redirect("/");
+      }
+    },
     waitOn: function() {
       return Meteor.subscribe('profiles', function() {
         if (Profiles.find({}).count()===0) {
