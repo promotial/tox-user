@@ -18,6 +18,8 @@ Router.configure({
       //start at login not register
       Session.set("register",false);
 
+      window.parent.postMessage("loginPage", "*");
+
       // render the loginView but keep the url in the browser the same
       this.render('login');
 
@@ -27,6 +29,7 @@ Router.configure({
     } else {
       Session.set("lang",false);
       Session.set("loading",false);
+      window.parent.postMessage("app", "*");
     }
   },
 
