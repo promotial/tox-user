@@ -1,5 +1,3 @@
-cordova = new Cordova();
-
 Meteor.startup(function() {
   Meteor.subscribe('profiles');
   Session.set('openProfile', null);

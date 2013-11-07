@@ -13,5 +13,8 @@ Handlebars.registerHelper('callTimeAgo', function(date) {
 });
 
 Handlebars.registerHelper('getInitials', function(name) {
-  return name.replace(/[^A-Z]/g, '');
+  if (name) {
+    return name.replace(/[^A-Z]/g, '');
+  }
+  return "";
 });

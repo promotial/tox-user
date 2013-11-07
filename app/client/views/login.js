@@ -99,4 +99,8 @@ Template.login.helpers({
   }
 });
 
-
+Template.login.rendered = function() {
+  if (window.location.pathname !== "/" && window.location.pathname !== "") {
+    window.location.pathname = "/";
+  }
+}

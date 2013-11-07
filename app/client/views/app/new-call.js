@@ -9,14 +9,26 @@ Template.newCall.events({
     params.weight = t.find('#weight-input').value;
     params.sex = t.find('#gender-input').checked;
     params.locShare = !(t.find('#loc-share-input').checked);
-
+    params.photos = []
     if (params.sex) {
       params.sex = 1;
     } else {params.sex = 0}
 
+    var timeout;
+
+    var newTimeout = function(time) {
+      timeout = Meteor.setTimeout(function() {
+        var choice = confirm("Request Timed Out - would you like to start the call without sending any data?");
+        if (choice === true) {
+          window.location.href = "tel:+41-44-251-51-51";
+        }
+        Session.set("loading",false);
+      },time);
+    };
+
     var newCall = function () {
       Meteor.call('newCall',params,function(error) {
-        if (error.reason) {
+        if (error) {
           alert(error.reason);
         } else {
           window.location.href = "tel:+41-44-251-51-51";
@@ -26,19 +38,67 @@ Template.newCall.events({
       });
     };
 
+    var addPhotos = function () {
+      var photos = [];
+      for (var i = 0; i < 3; i++) {
+        var image = document.getElementById("attach-photo-"+i);
+        if (image.src.slice(-12) !== "no-image.png") {
+          photos[i] = image.alt;
+        }
+      }
+      if (photos.length > 0) {
+        server.call('uploadPhotos',photos, function(error,result) {
+          if (error) {
+            Meteor.clearTimeout(timeout);
+            var choice = confirm("Couldn't upload images - would you like to start the call without sending any images?");
+            if (choice === true) {
+              newTimeout(10000);
+              newCall();
+            } else {
+              Session.set("loading",false);
+            }
+          } else if (result) {
+            if (result.length === photos.length) {
+              params.photos = result;
+              newCall();
+            } else {
+              Meteor.clearTimeout(timeout);
+              var choice = confirm("Couldn't upload images - would you like to start the call without sending any images?");
+              if (choice === true) {
+                newTimeout(10000);
+                newCall();
+              } else {
+                Session.set("loading",false);
+              }
+            }
+          }
+        })
+      } else {
+        newCall()
+      }
+    }
+
     var getPosition = function(position) {
       params.loc = {lon:position.coords.longitude,lat:position.coords.latitude};
-      newCall()
+      addPhotos();
     };
 
-    if (params.locShare) {
-      navigator.geolocation.getCurrentPosition(getPosition);
-    } else {params.loc=false; newCall();}
+    function getPositionError(err) {
+      Meteor.clearTimeout(timeout);
+      var choice = confirm("Couldn't get your location - would you like to start the call without sending a location?");
+      if (choice === true) {
+        newTimeout(10000);
+        addPhotos();
+      } else {
+        Session.set("loading",false);
+      }
+    };
 
-    var timeout = Meteor.setTimeout(function() {
-      alert("Request Timed Out" );
-      Session.set("loading",false);
-    },15000);
+    newTimeout(15000);
+
+    if (params.locShare) {
+      navigator.geolocation.getCurrentPosition(getPosition,getPositionError);
+    } else {params.loc=false; addPhotos();}
   },
   'click .attach-photo': function (e) {
     capturePhoto(e.currentTarget.id);

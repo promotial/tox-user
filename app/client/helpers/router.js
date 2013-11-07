@@ -22,10 +22,8 @@ Router.configure({
 
       // render the loginView but keep the url in the browser the same
       this.render('login');
-
       // stop the rest of the before hooks and the action function
       this.stop();
-
     } else {
       Session.set("lang",false);
       Session.set("loading",false);

@@ -20,6 +20,13 @@ Meteor.methods({
       }
     } else {throw new Meteor.Error(400, "ERROR!");}
 
+    if (params.photos !== null && params.photos !== undefined) {
+      check(params.photos, [String]);
+      if (params.photos.length > 3) {
+        throw new Meteor.Error(400, "ERROR!");
+      }
+    } else {throw new Meteor.Error(400, "ERROR!");}
+
     if (params.weight && params.weight !== "") {
       check(params.weight, String);
       if (parseInt(params.weight,10) > 900) {

@@ -2,9 +2,15 @@
   <a style="text-decoration:none;" href="{{pathFor 'home'}}"><span id="back-btn">{{multiLang 'BACK'}}</span></a>
   <div id="newcall-title">{{multiLang 'HISTORY' 'UPPER'}}</div>
   <div id="profiles-list">
-    {{#each calls}}
-      {{> callItem}}
-    {{/each}}
+    {{#if calls}}
+      {{#each calls}}
+        {{> callItem}}
+      {{/each}}
+    {{else}}
+      <div style="text-align:center;" class="history-item">
+        No Calls
+      </div>
+    {{/if}}
   </div>
 </template>
 
