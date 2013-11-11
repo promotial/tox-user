@@ -25,8 +25,8 @@ Router.configure({
       // stop the rest of the before hooks and the action function
       this.stop();
     } else {
-      Session.set("lang",false);
-      Session.set("loading",false);
+      Session.set("lang", false);
+      Session.set("loading", false);
       window.parent.postMessage("app", "*");
     }
   },
@@ -95,6 +95,12 @@ Router.map(function () {
     template: "app",
     yieldTemplates: { 'history': {to: "appView"} },
     waitOn: function() {return server.subscribe('calls',Meteor.userId());}
+  });
+
+  //renders about into appView on '/about'
+  this.route("about", {
+    template: "app",
+    yieldTemplates: { 'about': {to: "appView"} }
   });
 
   this.route('editProfile', {
