@@ -1,20 +1,18 @@
 Template.newCall.events({
   'click #init-call-btn': function (e, t) {
-    Session.set("loading",true);
+    Session.set("loading", true);
 
-    var params = {};
+    var timeout, params = {};
     params.name = t.find('#call-profile-select').value;
     params.age = t.find('#age-input').value;
     params.number = t.find('#mobile-input').value;
     params.weight = t.find('#weight-input').value;
     params.sex = t.find('#gender-input').checked;
     params.locShare = !(t.find('#loc-share-input').checked);
-    params.photos = []
+    params.photos = [];
     if (params.sex) {
       params.sex = 1;
-    } else {params.sex = 0}
-
-    var timeout;
+    } else { params.sex = 0; }
 
     var newTimeout = function(time) {
       timeout = Meteor.setTimeout(function() {
@@ -43,7 +41,7 @@ Template.newCall.events({
       for (var i = 0; i < 3; i++) {
         var image = document.getElementById("attach-photo-"+i);
         if (image.src.slice(-12) !== "no-image.png") {
-          photos[i] = image.alt;
+          photos[i] = image.src;
         }
       }
       if (photos.length > 0) {
