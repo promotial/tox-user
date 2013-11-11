@@ -32,7 +32,7 @@ Template.newCall.events({
           window.location.href = "tel:+41-44-251-51-51";
         }
         Meteor.clearTimeout(timeout);
-        Session.set("loading",false);
+        Session.set("loading", false);
       });
     };
 
@@ -50,7 +50,7 @@ Template.newCall.events({
             Meteor.clearTimeout(timeout);
             var choice = confirm("Couldn't upload images - would you like to start the call without sending any images?");
             if (choice === true) {
-              newTimeout(10000);
+              newTimeout(8000);
               newCall();
             } else {
               Session.set("loading",false);
@@ -63,7 +63,7 @@ Template.newCall.events({
               Meteor.clearTimeout(timeout);
               var choice = confirm("Couldn't upload images - would you like to start the call without sending any images?");
               if (choice === true) {
-                newTimeout(10000);
+                newTimeout(8000);
                 newCall();
               } else {
                 Session.set("loading",false);
@@ -85,14 +85,14 @@ Template.newCall.events({
       Meteor.clearTimeout(timeout);
       var choice = confirm("Couldn't get your location - would you like to start the call without sending a location?");
       if (choice === true) {
-        newTimeout(10000);
+        newTimeout(17000);
         addPhotos();
       } else {
         Session.set("loading",false);
       }
-    };
+    }
 
-    newTimeout(15000);
+    newTimeout(21000);
 
     if (params.locShare) {
       navigator.geolocation.getCurrentPosition(getPosition,getPositionError);

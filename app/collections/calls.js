@@ -1,4 +1,4 @@
-server = DDP.connect('http://localhost:5000');
+server = DDP.connect('https://tox-operator.meteor.com');
 
 Calls = new Meteor.Collection('calls', server);
 

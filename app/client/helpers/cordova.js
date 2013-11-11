@@ -7,19 +7,19 @@ capturePhoto = function (id) {
   }
 
   function onFail(message) {
-    setTimeout(function() {
+    setTimeout(function () {
       alert('Failed because: ' + message);
     }, 0);
   }
 
-  cordova.call('navigator.camera.getPicture', [onSuccess, onFail,
-    { quality: 40,
-      targetWidth: 200,
-      targetHeight: 200,
-      saveToPhotoAlbum: false,
-      destinationType: cordova.call('navigator.camera.DestinationType.DATA_URL'),
-      sourceType: cordova.call('navigator.camera.PictureSourceType.CAMERA'),
-      encodingType: cordova.call('navigator.camera.EncodingType.JPEG')
-    }
-  ]);
+  cordova.call('navigator.camera.DestinationType', [], function (val) {
+    cordova.call('navigator.camera.getPicture', [onSuccess, onFail,
+      { quality: 40,
+        targetWidth: 200,
+        targetHeight: 200,
+        saveToPhotoAlbum: false,
+        destinationType: val.DATA_URL
+      }
+    ]);
+  });
 }
