@@ -50,7 +50,7 @@ Template.newCall.events({
             Meteor.clearTimeout(timeout);
             var choice = confirm("Couldn't upload images - would you like to start the call without sending any images?");
             if (choice === true) {
-              newTimeout(8000);
+              newTimeout(15000);
               newCall();
             } else {
               Session.set("loading",false);
@@ -63,7 +63,7 @@ Template.newCall.events({
               Meteor.clearTimeout(timeout);
               var choice = confirm("Couldn't upload images - would you like to start the call without sending any images?");
               if (choice === true) {
-                newTimeout(8000);
+                newTimeout(15000);
                 newCall();
               } else {
                 Session.set("loading",false);
