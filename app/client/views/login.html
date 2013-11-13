@@ -10,15 +10,17 @@
             <span class="login-form-side-text icon-tags"></span>
         </div>
       {{/if}}
-      <!-- login username form -->
-      <input id="login-username{{#if register}}-register{{/if}}" class="login-form" type="email" placeholder="{{multiLang 'EMAIL'}}" required>
-      <div id="login-username-side{{#if register}}-register{{/if}}" class="login-form-side">
+      <div class="push-forms">
+        <!-- login username form -->
+        <input id="login-username{{#if register}}-register{{/if}}" class="login-form push-forms-up" type="email" placeholder="{{multiLang 'EMAIL'}}" required>
+        <div id="login-username-side{{#if register}}-register{{/if}}" class="login-form-side">
           <span class="login-form-side-text icon-user"></span>
-      </div>
-      <!-- login pass form -->
-      <input id="login-pass{{#if register}}-register{{/if}}" class="login-form" type="password" placeholder="{{multiLang 'PASSWORD'}}" required>
-      <div id="login-pass-side{{#if register}}-register{{/if}}" class="login-form-side">
-        <span class="login-form-side-text icon-lock"></span>
+        </div>
+        <!-- login pass form -->
+        <input id="login-pass{{#if register}}-register{{/if}}" class="login-form push-forms-up" type="password" placeholder="{{multiLang 'PASSWORD'}}" required>
+        <div id="login-pass-side{{#if register}}-register{{/if}}" class="login-form-side">
+          <span class="login-form-side-text icon-lock"></span>
+        </div>
       </div>
       {{#if register}}
         <!-- confirm login pass form -->

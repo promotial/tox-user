@@ -107,6 +107,10 @@
 #login-username
   right 8%
   top 27%
+  &:focus + #login-username-side
+    top 17%
+  &:focus
+    top 17%
 #login-username-side
   left 8%
   top 27%
@@ -120,12 +124,6 @@
   &:focus
     top 16%
     z-index 100
-  &:blur + #login-username-side-register
-    top 16%
-    z-index 100
-  &:blur
-    top 16%
-    z-index 100
 #login-username-side-register
   height 12%
   left 8%
@@ -134,6 +132,10 @@
 #login-pass
   top 48%
   right 8%
+  &:focus + #login-pass-side
+    top 27%
+  &:focus
+    top 27%
 #login-pass-side
   left 8%
   top 48%
@@ -145,12 +147,6 @@
     top 16%
     z-index 100
   &:focus
-    top 16%
-    z-index 100
-  &:blur + #login-pass-side-register
-    top 16%
-    z-index 100
-  &:blur
     top 16%
     z-index 100
 #login-pass-side-register
@@ -166,12 +162,6 @@
     top 16%
     z-index 100
   &:focus
-    top 16%
-    z-index 100
-  &:blur + #register-cpass-side
-    top 16%
-    z-index 100
-  &:blur
     top 16%
     z-index 100
 #register-cpass-side
