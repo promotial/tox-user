@@ -10,6 +10,7 @@ Template.newCall.events({
     params.sex = t.find('#gender-input').checked;
     params.locShare = !(t.find('#loc-share-input').checked);
     params.photos = [];
+
     if (params.sex) {
       params.sex = 1;
     } else { params.sex = 0; }
@@ -85,6 +86,8 @@ Template.newCall.events({
       Meteor.clearTimeout(timeout);
       var choice = confirm("Couldn't get your location - would you like to start the call without sending a location?");
       if (choice === true) {
+        params.locShare = false;
+        params.loc = false;
         newTimeout(17000);
         addPhotos();
       } else {
