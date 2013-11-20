@@ -2,7 +2,8 @@ Meteor.startup(function() {
   Meteor.subscribe('profiles');
   Session.set('openProfile', null);
   Session.set('openCall', null);
-  Session.set("loading",false);
+  Session.set("loading", false);
+  Session.set("pushed-up", "");
   Deps.autorun(function () {
     if (Meteor.user()) {
       Session.set("language",Meteor.user().profile.language);

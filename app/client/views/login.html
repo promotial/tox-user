@@ -1,7 +1,7 @@
 <template name="login">
   <div id="login">
     <img id="tox-title" src="/img/tox-logo.png">
-    <div id="login-forms" class="{{#if register}}register-forms{{/if}}">
+    <div id="login-forms" class="{{#if register}}register-forms{{/if}} {{push}}">
       <div class="forms-border-top {{#if register}}border-register{{/if}}"></div>
       {{#if register}}
         <!-- name form -->

@@ -64,6 +64,7 @@ Template.login.events({
     } else {
       Session.set('register',true);
     }
+    Session.set("pushed-up", "");
   },
   'click .sign-in-btn': function(e) {
     Session.set("loading",true);
@@ -90,12 +91,21 @@ Template.login.events({
 
     Meteor.setTimeout(function() {Session.set("loading",false);},4000);
     return false;
+  },
+  'focus .login-form': function(e) {
+    Session.set("pushed-up", "pushed");
+  },
+  'blur .login-form': function(e) {
+    Session.set("pushed-up", "");
   }
 });
 
 Template.login.helpers({
   register: function() {
     return Session.get('register');
+  },
+  push: function() {
+    return Session.get("pushed-up");
   }
 });
 
